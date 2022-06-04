@@ -1,20 +1,56 @@
 // Answers
 export const answers = {
     sectOne : {
-        one: "tener",
-        two: "querer",
-        three: "vivir",
-        four: "cantar",
-        five: "escribir",
-        six: "pensar"
+        one: {
+            answer: "tener",
+            correct: null
+        },
+        two: {
+            answer :"querer",
+            correct: null
+        },
+        three: {
+            answer: "vivir",
+            correct: null
+        },
+        four: {
+            answer: "cantar",
+            correct: null
+        },
+        five: {
+            answer: "escribir",
+            correct: null
+        },
+        six: {
+            answer: "pensar",
+            correct: null
+        }
     },
     sectTwo : {
-        one: "visito",
-        two: "visitas",
-        three: "visita",
-        four: "visitamos",
-        five: "visitáis",
-        six: "visitan"
+        one: {
+            answer: "visito",
+            correct: null
+        },
+        two: {
+            answer :"visitas",
+            correct: null
+        },
+        three: {
+            answer: "visita",
+            correct: null
+        },
+        four: {
+            answer: "visitamos",
+            correct: null
+        },
+        five: {
+            answer: "visitáis",
+            correct: null
+        },
+        six: {
+            answer: "visitan",
+            correct: null
+        }
     },
     sectThree : {
         one: "bebo",
