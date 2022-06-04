@@ -1,6 +1,8 @@
+import { answers } from "./present_answers.js"
+
 const ansBtns = document.querySelectorAll('[data-ans-btn]')
 const ansInputs = document.querySelectorAll('[data-ans-input]')
-const section = document.querySelectorAll('[data-section]')
+const ansSelects = document.querySelectorAll('[data-ans-sel]')
 
 let ansBtnIndex
 
@@ -19,6 +21,9 @@ function checkAnsInput() {
                 checkAns(ansInput)
             }
     })
+    ansSelects.forEach(ansSelect => {
+        console.log(ansSelect);
+    })
 }
 
 // Check answers
@@ -31,6 +36,7 @@ function checkAns(input) {
     } else {
         input.style.backgroundColor = 'red'
     }
+    input.value = answers[x][y]
 }
 
 // Helper Functions
@@ -38,22 +44,3 @@ function id(id) {
     return document.getElementById(id)
 }
 
-// Answers
-const answers = {
-    sectOne : {
-        one: "tener",
-        two: "querer",
-        three: "vivir",
-        four: "cantar",
-        five: "escribir",
-        six: "pensar"
-    },
-    sectTwo : {
-        one: "visito",
-        two: "visitas",
-        three: "visita",
-        four: "visitamos",
-        five: "visitáis",
-        six: "visitan"
-    }
-}
