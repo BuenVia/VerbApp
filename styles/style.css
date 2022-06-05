@@ -3,6 +3,7 @@
     --trim-clr: red;
     --trim-txt: white;
     --sec-clr: rgb(1, 1, 70);
+    --btn-clr: rgb(25, 196, 25);
 }
 
 *, *::after, *::before {
@@ -29,7 +30,10 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
 
+.wrap {
+    flex-wrap: wrap;
 }
 
 .height-row {
@@ -182,4 +186,68 @@ body {
 
 #infinitive {
     display: none;
+}
+
+.input-box {
+    padding: 1rem;
+}
+
+.input-box input {
+    margin: .5rem;
+    padding: .5rem ;
+    border-radius: 5px;
+    outline: none;
+}
+
+.sentence-box {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 0 3rem;
+}
+
+.sentence-box input {
+    margin: 1rem;
+    padding: .5rem;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+.select-box {
+    padding: 1rem;
+}
+
+.select-box select {
+    padding: .25rem;
+    border-radius: 5px;
+}
+
+.translate-box {
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+.translate-box textarea {
+    width: 15rem;
+    height: 5rem;
+    margin: 1rem 0 1.5rem;
+    padding: .5rem;
+    resize: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+.btn {
+    padding: .5rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-submit {
+    background-color: var(--trim-clr);
+    color: var(--trim-txt);
+}
+.btn-submit:hover {
+    transition: 300ms;
+    background-color: rgb(138, 0, 0);
 }
