@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <script src="js/script.js" type="module"></script>
+    <title>BuenVia</title>
+</head>
+<body>
+
+    
+    <nav>
+        <div class="navbar">
+            <div class="logo">
+                <img src="styles/assets/logo.png" alt="">
+            </div>
+            <div>
+                <ul class="nav-links flex-row">
+                    <a href="index.html"><li>HOME</li></a>
+                    <a href="practice.html"><li>PRACTICE</li></a>
+                    <a href="learn.html"><li>LEARN</li></a>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="center">
+        <div class="width-container">
+
+
+
+            <div class="flex-row height-row">
+                <div class="col-75" id="lessonContainer">
+
+                    <!--USING VERBS-->
+                    <section id="usingVerbs">
+                        <div class="header-lg">
+                            <h1 id="header">Present Tense</h1>
+
+                        </div>
+
+                            <!--SECTION ONE-->
+                            <div class="section">
+                                <div class="text-sm">
+                                    <div class="flex-row">
+                                        <h3>Write each of these verbs in Spanish in their infinitive form.</h3>
+                                        <p><span data-score="sectOne">0</span> / <span data-total="sectOne">?</span></p>
+                                    </div>
+                                    <div class="flex-row">
+                                        <div class="flex-col input-box">
+                                            <label for="">To have</label>
+                                            <input type="text" data-ans-input="one" data-section="sectOne">
+                                            <label for="">To want</label>
+                                            <input type="text" data-ans-input="two" data-section="sectOne">
+                                        </div>
+                                        <div class="flex-col input-box"">
+                                            <label for="">To live</label>
+                                            <input type="text" data-ans-input="three" data-section="sectOne">
+                                            <label for="">To sing</label>
+                                            <input type="text" data-ans-input="four" data-section="sectOne">
+                                        </div>
+                                        <div class="flex-col input-box"">
+                                            <label for="">To write</label>
+                                            <input type="text" data-ans-input="five" data-section="sectOne">
+                                            <label for="">To think</label>
+                                            <input type="text" data-ans-input="six" data-section="sectOne">
+                                        </div>
+                                    </div>
+                                    <div class="flex-row">
+                                        <button class="btn btn-submit" data-ans-btn="sectOne">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--SECTION TWO-->
+                            <div class="section">
+                                <div class="text-sm">
+                                    <div class="flex-row input-box"">
+                                        <h3>Fill in the gaps in these sentences with the right form of visitar (an -AR verb).</h3>
+                                        <p><span data-score="sectTwo">0</span> / <span data-total="sectTwo">?</span></p>
+                                    </div>
+                                    <div class="flex-row">
+                                        <div class="sentence-box">
+                                            <label for="">1) Yo <input type="text" placeholder="visitar" data-ans-input="one" data-section="sectTwo"> un amigo.</label>
+                                            <label for="">2) Tú <input type="text" placeholder="visitar" data-ans-input="two" data-section="sectTwo"> muchas ciudades.</label>
+                                            <label for="">3) La mujer <input type="text" placeholder="visitar" data-ans-input="three" data-section="sectTwo"> a su tía.</label>
+                                        </div>
+                                        <div class="sentence-box"">
+                                            <label for="">4) Fred y yo <input type="text" placeholder="visitar" data-ans-input="four" data-section="sectTwo"> a nuestros abuelos.</label>
+                                            <label for="">5) ¿Vosotros <input type="text" placeholder="visitar" data-ans-input="five" data-section="sectTwo"> a Naomi?</label>
+                                            <label for="">6) Esther y Sam <input type="text" placeholder="visitar" data-ans-input="six" data-section="sectTwo"> Paris.</label>
+                                        </div>
+                                    </div>
+                                    <div class="flex-row">
+                                        <button class="btn btn-submit" data-ans-btn="sectTwo">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--SECTION THREE-->
+                            <div class="section">
+                                <div class="text-sm">
+                                    <div class="flex-row">
+                                        <h3>Fill in the the table to show beber (a regular -ER verb) in the present tense.</h3>
+                                        <!-- <p><span data-score="sectThree">0</span> / <span data-total="sectThree">?</span></p> -->
+                                    </div>
+                                    <div class="flex-row">
+                                        <div class="flex-col input-box">
+                                            <label for="">I drink</label>
+                                            <input type="text" placeholder="beber" data-ans-input="one" data-section="sectThree">
+                                            <label for="">You drink</label>
+                                            <input type="text" placeholder="beber" data-ans-input="two" data-section="sectThree">
+                                            <label for="">He / She / It drinks</label>
+                                            <input type="text" placeholder="beber" data-ans-input="three" data-section="sectThree">
+                                            <label for="">You drink (formal)</label>
+                                            <input type="text" placeholder="beber" data-ans-input="four" data-section="sectThree">
+                                        </div>
+                                        <div class="flex-col input-box">
+                                            <label for="">We drink</label>
+                                            <input type="text" placeholder="beber" data-ans-input="five" data-section="sectThree">
+                                            <label for="">You (all) drink</label>
+                                            <input type="text" placeholder="beber" data-ans-input="six" data-section="sectThree">
+                                            <label for="">They drink</label>
+                                            <input type="text" placeholder="beber" data-ans-input="seven" data-section="sectThree">
+                                            <label for="">You (all) drink (formal)</label>
+                                            <input type="text" placeholder="beber" data-ans-input="eight" data-section="sectThree">
+                                        </div>
+                                    </div>
+                                    <div class="flex-row">
+                                        <button class="btn btn-submit" data-ans-btn="sectThree">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--SECTION FOUR-->
+                            <div class="section">
+                                <div class="text-sm">
+                                    <h3>Complete each sentence by clicking the correct form of escribir (a regular -IR verb).</h3>
+                                    <div class="flex-row">
+                                        <div class="flex-col">
+                                            <div class="select-box">
+                                                <label for="">Sita y Raúl 
+                                                    <select name="" id="" data-ans-input="one" data-section="sectFour">
+                                                        <option value="">--select--</option>
+                                                        <option value="escribe">escribe</option>
+                                                        <option value="escriben">escriben</option>
+                                                    </select> 
+                                                    muchas cartas.</label>
+                                            </div>
+                                            <div class="select-box">
+                                                <label for="">Alejandro, ¿
+                                                    <select name="" id="" data-ans-input="two" data-section="sectFour">
+                                                        <option value="">--select--</option>
+                                                        <option value="escribes">escribes</option>
+                                                        <option value="escribimos">escribimos</option>
+                                                    </select> 
+                                                    una novela?</label>
+                                            </div>
+                                        </div>
+                                        <div class="flex-col">
+                                            <div class="select-box">
+                                                <label for="">Yo 
+                                                    <select name="" id="" data-ans-input="three" data-section="sectFour">
+                                                        <option value="">--select--</option>
+                                                        <option value="escribo">escribo</option>
+                                                        <option value="escribe">escribe</option>
+                                                    </select> 
+                                                    cerca del mar.</label>
+                                            </div>
+                                            <div class="select-box">        
+                                            <label for="">Usted 
+                                                <select name="" id="" data-ans-input="four" data-section="sectFour">
+                                                    <option value="">--select--</option>
+                                                    <option value="escribes">escribes</option>
+                                                    <option value="escribe">escribe</option>
+                                                    <option value="escribís">escribís</option>
+                                                </select> 
+                                                mucho?</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex-row">
+                                        <button class="btn btn-submit" data-ans-btn="sectFour">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--SECTION FIVE-->
+                            <div class="section">
+                                <div class="text-sm">
+                                    <h3>Translate these sentences into Spanish using the present tense.</h3>
+                                        <div class="flex-row">
+                                            <div class="translate-box">
+                                                <label for="">I eat chicken every day.</label>
+                                                <textarea type="text" data-ans-input="one" data-section="sectFive"></textarea>
+                                            </div>
+                                            <div class="translate-box">
+                                                <label for="">I have been coming here for four years.</label>
+                                                <textarea type="text" data-ans-input="two" data-section="sectFive"></textarea>
+                                            </div>
+                                            <div class="translate-box">
+                                                <label for="">We have been waiting for an hour.</label>
+                                                <textarea type="text" data-ans-input="three" data-section="sectFive"></textarea>
+                                            </div>
+                                        </div>
+                                    <div class="flex-row">
+                                        <button class="btn btn-submit" data-ans-btn="sectFive">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--SECTION SIX-->
+                            <div class="section">
+                                <div class="text-sm">
+                                    <h3>Translate these sentences into English.</h3>
+                                        <div class="flex-row wrap">
+                                            <div class="translate-box">
+                                                <label for="">Puedo ayudar a tu abuela.</label>
+                                                <textarea type="text" data-ans-input="one" data-section="sectSix"></textarea>
+                                            </div>
+                                            <div class="translate-box">
+                                                <label for="">Queremos ir de compras.</label>
+                                                <textarea type="text" data-ans-input="two" data-section="sectSix"></textarea>
+                                            </div>
+                                            <div class="translate-box">
+                                                <label for="">El coche cuesta mil libras.</label>
+                                                <textarea type="text" data-ans-input="three" data-section="sectSix"></textarea>
+                                            </div>
+                                            <div class="translate-box">
+                                                <label for="">Las clases empiezan a las ocho.</label>
+                                                <textarea type="text" data-ans-input="four" data-section="sectSix"></textarea>
+                                            </div>
+                                            <div class="translate-box">
+                                                <label for="">Me despierto a las siete.</label>
+                                                <textarea type="text "data-ans-input="five" data-section="sectSix"></textarea>
+                                            </div>
+                                            <div class="translate-box">
+                                                <label for="">Nos acostamos a las diez.</label>
+                                                <textarea type="text" data-ans-input="six" data-section="sectSix"></textarea>
+                                            </div>
+                                        </div>
+                                    <div class="flex-row">
+                                        <button class="btn btn-submit" data-ans-btn="sectSix">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--SECTION SEVEN-->
+                            <div class="section">
+                                <div class="text-sm">
+                                    <h3>Tom has written these Spanish sentences, but he has made some mistakes with his radical changing verbs. Write out the wrong sentences correctly.</h3>
+                                        <div class="flex-row wrap">
+                                            <div class="translate-box">
+                                                <label for="">Yo penso que el tiene un perro.</label>
+                                                <textarea type="text" data-ans-input="one" data-section="sectSeven"></textarea>
+                                            </div>
+                                            <div class="translate-box">
+                                                <label for="">Almorzo a las once.</label>
+                                                <textarea type="text" data-ans-input="two" data-section="sectSeven"></textarea>
+                                            </div>
+                                            <div class="translate-box">
+                                                <label for="">Me duelen los dedos.</label>
+                                                <textarea type="text" data-ans-input="three" data-section="sectSeven"></textarea>
+                                            </div>
+                                            <div class="translate-box">
+                                                <label for="">Jugamos al baloncesto.</label>
+                                                <textarea type="text"data-ans-input="four" data-section="sectSeven"></textarea>
+                                            </div>
+                                            <div class="translate-box">
+                                                <label for="">No duermo bien cuando llove.</label>
+                                                <textarea type="text" data-ans-input="five" data-section="sectSeven"></textarea>
+                                            </div>
+                                        </div>
+                                    <div class="flex-row">
+                                        <button class="btn btn-submit" data-ans-btn="sectSeven">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--SECTION EIGHT-->
+                            <div class="section">
+                                <div class="text-sm">
+                                    <h3>Complete these sentences by filling the gaps. Watch our for any irregular forms.</h3>
+                                        <div class="flex-row">
+                                            <div class="flex-col">
+                                            <div class="select-box">
+                                                <label for="">Yo no 
+                                                    <select name="" id="" data-ans-input="one" data-section="sectEight">
+                                                        <option value="">--select--</option>
+                                                        <option value="sabe">sabe</option>
+                                                        <option value="sabo">sabo</option>
+                                                        <option value="sé">sé</option>
+                                                    </select> 
+                                                    lo que está pasando.</label>
+                                            </div>
+                                            
+                                            <div class="select-box">
+                                                <label for="">Elisa y Juan 
+                                                    <select name="" id="" data-ans-input="two" data-section="sectEight">
+                                                        <option value="">--select--</option>
+                                                        <option value="van">van</option>
+                                                        <option value="va">va</option>
+                                                        <option value="vas">vas</option>
+                                                    </select> 
+                                                    a la tienda.</label>
+                                            </div>
+                                        </div>
+                                        <div class="flex-col">
+                                            <div class="select-box">
+                                                <label for="">El professor nos 
+                                                    <select name="" id="" data-ans-input="three" data-section="sectEight">
+                                                        <option value="">--select--</option>
+                                                        <option value="da">da</option>
+                                                        <option value="doy">doy</option>
+                                                        <option value="dan">dan</option>
+                                                    </select> 
+                                                    muchos deberes.</label>
+                                            </div>
+
+                                            <div class="select-box">
+                                                <label for="">Los viernes, yo 
+                                                    <select name="" id="" data-ans-input="four" data-section="sectEight">
+                                                        <option value="">--select--</option>
+                                                        <option value="vo">vo</option>
+                                                        <option value="voy">voy</option>
+                                                        <option value="va">va</option>
+                                                    </select> 
+                                                    a Durham.</label>
+                                            </div>
+                                        </div>
+                                        <div class="flex-col">
+                                            <div class="select-box">
+                                                <label for="">Él 
+                                                    <select name="" id="" data-ans-input="five" data-section="sectEight">
+                                                        <option value="">--select--</option>
+                                                        <option value="sabo">sabo</option>
+                                                        <option value="sé">sé</option>
+                                                        <option value="sabe">sabe</option>
+                                                    </select> 
+                                                    que no es verdad.</label>
+                                            </div>
+
+                                            <div class="select-box">
+                                                <label for="">Yo te 
+                                                    <select name="" id="" data-ans-input="six" data-section="sectEight">
+                                                        <option value="">--select--</option>
+                                                        <option value="doy">doy</option>
+                                                        <option value="da">da</option>
+                                                        <option value="do">do</option>
+                                                    </select> 
+                                                    uno de mis caramelos.</label>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    <div class="flex-row">
+                                        <button class="btn btn-submit" data-ans-btn="sectEight">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--SECTION NINE-->
+                            <div class="section">
+                                <div class="text-sm">
+                                    <h3>Translate these sentences into Spanish.</h3>
+                                        <div class="flex-row wrap">
+                                            <div class="translate-box">
+                                                <label for="">I know that she has a sister.</label>
+                                                <textarea type="text" data-ans-input="one" data-section="sectNine"></textarea>
+                                            </div>
+                                            <div class="translate-box">
+                                                <label for="">When he goes to the park, he plays football.</label>
+                                                <textarea type="text" data-ans-input="two" data-section="sectNine"></textarea>
+                                            </div>
+                                            <div class="translate-box">
+                                                <label for="">I prefer to do my homework straightaway.</label>
+                                                <textarea type="text" data-ans-input="three" data-section="sectNine"></textarea>
+                                            </div>
+                                        </div>
+                                    <div class="flex-row">
+                                        <button class="btn btn-submit" data-ans-btn="sectNine">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                    </section>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+    
+</body>
+</html>

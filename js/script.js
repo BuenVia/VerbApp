@@ -17,7 +17,6 @@ ansBtns.forEach(ansBtn => {
         ansBtnIndex = ansBtn.dataset.ansBtn
         checkAnsInput()
         score.innerText = currentAnswer
-
     })
 })
 

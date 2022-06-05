@@ -157,6 +157,20 @@ body {
     margin-top: 2rem;
 }
 
+.front-img {
+    height: 100px;
+    width: 200px;
+    background-repeat: no-repeat;
+    background-size: 200px;
+    background-position: center;
+}
+.learn {
+    background-image: url('assets/person_female_icon.svg');
+}
+.practice {
+    background-image: url('assets/person_male_icon.svg');
+}
+
 .ex-table {
     width: 100%;
     border-spacing: 0;
