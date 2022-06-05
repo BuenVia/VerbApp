@@ -53,8 +53,6 @@ total.forEach(total => {
     total.innerText = Object.keys(answers[questNum]).length
 })
 
-
-
 // Helper Functions
 function id(id) {
     return document.getElementById(id)

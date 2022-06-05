@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
     <script src="js/script.js" type="module"></script>
+    <script src="js/main.js" type="module"></script>
     <title>BuenVia</title>
 </head>
 <body >
@@ -39,64 +40,37 @@
 
                     <!--USING VERBS-->
                     <section id="usingVerbs">
-                        <div class="header-lg">
-                            <h1 id="header">Practice</h1>
+                        <div class="header-lg" id="header">
+                            <h1>Practice</h1>
                         </div>
     
-                        <div>
-                            <div class="section">
+                            <div class="section" id="tenseContainer">
                                 <div class="text-sm">
                                     <h3>Learn</h3>
                                     <div class="flex-row">
                                         <div class="col-50">
-                                            <ul>
-                                                <a href="present.html">Present</a>
-                                                <a href="ser_estar.html">Ser and Estar</a>
-                                            </ul>
+                                            <p>Select the tense you want to practice</p>
+                                            <button class="tense-btn" data-practice-btn="present">Present</button>
+                                            <button class="tense-btn" data-practice-btn="serEstar">Ser and Estar</button>                                        
+                                            <button class="tense-btn" data-practice-btn="preterite">Preterite</button>                                        
                                         </div>
                                         <div class="flex-col col-50">
                                             <div class="front-img learn"></div>
                                         </div>
                                     </div>
+                                    <div class="flex-row">
+                                        <ul>
+                                            <a href="present.html">Present</a>
+                                            <a href="ser_estar.html">Ser and Estar</a>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                    </section>
+                        
 
+                            <!--PRACTICE CONTAINER-->
+                            <div class="section" id="practiceContainer"></div>
 
-                    <!--INFINITIVE-->
-                    <section id="infinitive">
-                        <div class="header-lg">
-                            <h1 id="header">Infinitive</h1>
-                        </div>
-    
-                        <div>
-                            <div class="section">
-                                <div class="text-sm">
-                                    <h3>Dictionary verbs are infinitive</h3>
-                                    <p>Verbs in the dictionary are always in the <span class="boldWord">infinitive.</span> </p>
-                                    <p>Spanish verbs in the infinitive always end in either <span class="boldWord">-AR</span>, <span class="boldWord">-ER</span> or <span class="boldWord">-IR</span>, </p>
-                                    <p class="imp-word">Habl<span class="boldWord">ar</span>. Com<span class="boldWord">er</span>. Ven<span class="boldWord">ir</span>. </p>
-                                </div>
-                            </div>
-    
-                            <div class="section">
-                                <div class="text-sm">
-                                    <h3>Infinitves are used when following other verbs</h3>
-                                    <p>When using two verbs together, the second verb is usually <span class="boldWord">infinitive.</span> </p>
-                                    <p class="imp-word">I want <span class="boldWord">to run</span> today</p>
-                                    <p class="imp-word">Quiero <span class="boldWord">correr</span> hoy</p>
-                                </div>
-                            </div>
-    
-                            <div class="section">
-                                <div class="text-sm">
-                                    <h3>Other inifintive uses</h3>
-                                    <p>Sometimes an infinitive can be used at the begining of the sentence.</p>
-                                    <p class="imp-word"><span class="boldWord">Ver</span> el fútbol me hace feliz</p>
-                                    <p class="imp-word"><span class="boldWord">Watching</span> football makes me happy</p>
-                                </div>
-                            </div>
-                        </div>
                     </section>
                     
                 </div> <!--END OF col-75-->
@@ -106,19 +80,19 @@
                     <!--SIDE COLUMN-->
                     <div class="section">
                         <div class="info-sm">
-                            <h2>Practice Conjugations</h2>
+                            <h2>Score</h2>
                             <ul class="sidebar-links">
-                                <a href="" data-link="usingVerbs"><li>Using Verbs</li></a>
-                                <a href="" data-link="inifintive"><li>Infinitive</li></a>
-                                <a href="" data-link="preterite"><li>Pretrite</li></a>
-                                <a href=""><li>Imperfect</li></a>
-                                <a href=""><li>Perfect</li></a>
-                                <a href=""><li>Pluperfect</li></a>
-                                <a href=""><li>Present</li></a>
-                                <a href=""><li>Present Continuous</li></a>
-                                <a href=""><li>Immediate Future</li></a>
-                                <a href=""><li>Proper Future</li></a>
-                                <a href=""><li>Conditional</li></a>
+                                <li>Using Verbs</li>
+                                <li>Infinitive</li>
+                                <li>Pretrite</li>
+                                <li>Imperfect</li>
+                                <li>Perfect</li>
+                                <li>Pluperfect</li>
+                                <li>Present</li>
+                                <li>Present Continuous</li>
+                                <li>Immediate Future</li>
+                                <li>Proper Future</li>
+                                <li>Conditional</li>
                             </ul>
                         </div>
                     </div>

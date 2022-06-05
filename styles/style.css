@@ -4,6 +4,8 @@
     --trim-txt: white;
     --sec-clr: rgb(1, 1, 70);
     --btn-clr: rgb(25, 196, 25);
+    --correct: rgb(96, 212, 96);
+    --incorrect: rgb(212, 96, 96);
 }
 
 *, *::after, *::before {
@@ -86,6 +88,7 @@ body {
 }
 
 .sidebar-links a {
+    text-decoration: none;
     line-height: 1.5rem;
     color: white;
 }
@@ -122,7 +125,7 @@ body {
 .header-lg {
     padding: 1rem 0 1rem;
     margin-bottom: 1rem;
-    background-color: var(--trim-clr);
+    background-color: var(--sec-clr);
     color: var(--trim-txt);
 }
 .header-lg h1, p {
@@ -257,6 +260,19 @@ body {
     cursor: pointer;
 }
 
+.tense-btn {
+    background-color: var(--sec-clr);
+    color: var(--trim-txt);
+    padding: 1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.tense-btn:hover {
+    transition: 500ms;
+    background-color: blue;
+}
+
 .btn-submit {
     background-color: var(--trim-clr);
     color: var(--trim-txt);
@@ -264,4 +280,29 @@ body {
 .btn-submit:hover {
     transition: 300ms;
     background-color: rgb(138, 0, 0);
+}
+
+.btn-next {
+    display: none;
+    background-color: var(--sec-clr);
+    color: var(--trim-txt);
+}
+.btn-next:hover {
+    transition: 300ms;
+    background-color: rgb(0, 2, 131);
+}
+
+.ans-btn {
+    width: 150px;
+    padding: .5rem;
+    margin: .5rem;
+    border: 1px solid var(--trim-clr);
+    border-radius: 5px;
+    background-color: transparent;
+    cursor: pointer;
+}
+.ans-btn:hover {
+    transition: 300ms;
+    background-color: var(--sec-clr);
+    color: var(--trim-txt);
 }
