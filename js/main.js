@@ -5,6 +5,13 @@ const summaryContainer = id('summaryContainer')
 const sectionBtns = document.querySelectorAll('[data-practice-btn]')
 const presentBtn = id('presentBtn')
 
+const scoreEls = document.querySelectorAll('[data-score-el]')
+
+const scoreObj = {
+    present: null,
+    serEstar: null
+}
+
 let chosenSub, questionSet, questionIndex = 0, ansBtnAns, userAnswer, ansArr = []
 
 // Assign question set
@@ -23,6 +30,7 @@ sectionBtns.forEach(btn => {
         loadQuestions(questionSet[questionIndex])
     })
 })
+
 
 // Render question next question to screen
 function loadQuestions(item) {
@@ -55,6 +63,11 @@ function loadQuestions(item) {
             id('header').innerHTML = `<h1>Practice</h1>` // Change to be tense
             summaryContainer.style.display = 'none'
             tenseContainer.style.display = 'block'
+            // Show scores
+            scoreEls.forEach(scoreEl => {
+                const scoreNum = scoreEl.dataset.scoreEl
+                scoreEl.innerHTML = `${scoreObj[scoreNum]}`
+            })
         })
     }
 }
@@ -95,11 +108,6 @@ function checkAnswer(item) {
         answerObj.correct = false
     }
     ansArr.push(answerObj)
-}
-
-const scoreObj = {
-    present: null,
-    serEstar: null
 }
 
 function score(item) {
@@ -160,6 +168,7 @@ function generateTemplate(item) {
 
 // Generates and renders summary to screen after user has answered questions
 function summary() {
+    summaryContainer.style.display = 'block'
     ansArr.forEach(ans => {
         const correctHtml= `
         <h4>Correct answer:</h4> 
