@@ -5,14 +5,13 @@ const summaryContainer = id('summaryContainer')
 const sectionBtns = document.querySelectorAll('[data-practice-btn]')
 const presentBtn = id('presentBtn')
 
-
-
 let chosenSub, questionSet, questionIndex = 0, ansBtnAns, userAnswer, ansArr = []
-/////////////////////////////////////////////
 
+// Assign question set
 sectionBtns.forEach(btn => {
     btn.addEventListener('click', () => {
         tenseContainer.style.display = 'none'
+        practiceContainer.style.display = 'block'
         // Assign user selection to chosenSub variable
         const btnDataSet = btn.dataset.practiceBtn
         if(questions.hasOwnProperty(btnDataSet)) {
@@ -25,6 +24,7 @@ sectionBtns.forEach(btn => {
     })
 })
 
+// Render question next question to screen
 function loadQuestions(item) {
     if (questionIndex < questionSet.length) {
         generateTemplate(item)
@@ -48,10 +48,18 @@ function loadQuestions(item) {
     } else {
         practiceContainer.style.display = 'none'
         summary()
+        id('header').innerHTML = score(ansArr)
         console.log(ansArr);
+        id('finishBtn').addEventListener('click', () => {
+            resetState()
+            id('header').innerHTML = `<h1>Practice</h1>` // Change to be tense
+            summaryContainer.style.display = 'none'
+            tenseContainer.style.display = 'block'
+        })
     }
 }
 
+// Assigns the user answer to a variable
 function assignAnswer(item) {
     const userAnswerEl = id('userAnswerEl')
     if (item.type === 'write') {
@@ -68,6 +76,7 @@ function assignAnswer(item) {
     })
 }
 
+// Checks user answer against actual answer and saves it to object
 function checkAnswer(item) {
     const answerObj = {
         instuction: item.instuction,
@@ -88,6 +97,24 @@ function checkAnswer(item) {
     ansArr.push(answerObj)
 }
 
+const scoreObj = {
+    present: null,
+    serEstar: null
+}
+
+function score(item) {
+    let correctScore = 0
+    for (let i = 0; i < item.length; i++) {
+        if (item[i].correct === true) {
+            correctScore++
+        }
+    }
+    scoreObj[chosenSub] = correctScore
+    console.log(scoreObj)
+    return `<h1>Score: ${correctScore} / ${item.length}</h1>`
+}
+
+// Generates template for each question before rendering to screen
 function generateTemplate(item) {
     if(item.type === 'multipleChoice') {
         const multipleChoice = `
@@ -131,6 +158,7 @@ function generateTemplate(item) {
     }
 }
 
+// Generates and renders summary to screen after user has answered questions
 function summary() {
     ansArr.forEach(ans => {
         const correctHtml= `
@@ -152,8 +180,18 @@ function summary() {
     })
 }
 
-/////////////////////////////////////////////
+// Reset state
+function resetState() {
+    chosenSub = ''
+    questionSet = ''
+    questionIndex = 0
+    ansBtnAns = ''
+    userAnswer = ''
+    ansArr = []
+}
 
+/////////////////////////////////////////////
+// Helper
 function id(id) {
     return document.getElementById(id)
 }
