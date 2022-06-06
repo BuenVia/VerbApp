@@ -6,13 +6,14 @@ const sectionBtns = document.querySelectorAll('[data-practice-btn]')
 const presentBtn = id('presentBtn')
 
 const scoreEls = document.querySelectorAll('[data-score-el]')
+const totalEls = document.querySelectorAll('[data-total-el]')
 
 const scoreObj = {
     present: null,
     serEstar: null
 }
 
-let chosenSub, questionSet, questionIndex = 0, ansBtnAns, userAnswer, ansArr = []
+let chosenSub, questionSet, questionIndex = 0, ansBtnAns, userAnswer, ansArr = [], answerObj
 
 // Assign question set
 sectionBtns.forEach(btn => {
@@ -57,7 +58,16 @@ function loadQuestions(item) {
         practiceContainer.style.display = 'none'
         summary()
         id('header').innerHTML = score(ansArr)
+        // Condense down in to one or two objects
+        console.log(chosenSub);
+        console.log(questionSet);
+        console.log(questionIndex);
+        console.log(ansBtnAns);
+        console.log(userAnswer);
         console.log(ansArr);
+        console.log(scoreObj);
+        console.log(answerObj);
+
         id('finishBtn').addEventListener('click', () => {
             resetState()
             id('header').innerHTML = `<h1>Practice</h1>` // Change to be tense
@@ -66,7 +76,7 @@ function loadQuestions(item) {
             // Show scores
             scoreEls.forEach(scoreEl => {
                 const scoreNum = scoreEl.dataset.scoreEl
-                scoreEl.innerHTML = `${scoreObj[scoreNum]}`
+                scoreEl.innerHTML = `${scoreObj[scoreNum]} out of ${questionSet.length}` //Assigns score to sidebar
             })
         })
     }
@@ -91,7 +101,7 @@ function assignAnswer(item) {
 
 // Checks user answer against actual answer and saves it to object
 function checkAnswer(item) {
-    const answerObj = {
+    answerObj = {
         instuction: item.instuction,
         question: item.text,
         answer: item.answers.correct,
@@ -118,7 +128,6 @@ function score(item) {
         }
     }
     scoreObj[chosenSub] = correctScore
-    console.log(scoreObj)
     return `<h1>Score: ${correctScore} / ${item.length}</h1>`
 }
 

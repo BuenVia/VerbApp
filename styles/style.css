@@ -96,10 +96,12 @@ body {
     margin-top: 1rem;
 }
 
-.sidebar-links a {
-    text-decoration: none;
-    line-height: 1.5rem;
-    color: white;
+.score-group {
+    display: flex;
+    flex-direction: row ;
+}
+.score-box-name {
+    margin: 0 1rem;
 }
 
 /*MAIN*/
@@ -111,8 +113,9 @@ body {
 }
 
 .width-container {
+    padding: 2rem;
     width: 1200px;
-    height: 100vh;
+    min-height: 100vh;
     background-color: white;
 }
 
@@ -136,6 +139,7 @@ body {
     padding: 1rem 0 1rem;
     margin-bottom: 1rem;
     background-color: var(--sec-clr);
+    border-top: 2px solid var(--trim-clr);
     color: var(--trim-txt);
 }
 .header-lg h1, p {
@@ -184,6 +188,21 @@ body {
     background-image: url('assets/practice.svg');
 }
 
+.btn-group {
+    border-bottom: 1px solid var(--trim-clr);
+}
+
+.btn-container {
+    padding: 1rem;
+    margin: 1.5rem 0 1.5rem;
+    gap: 3rem;
+}
+.btn-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .ex-table {
     width: 100%;
     border-spacing: 0;
@@ -296,17 +315,21 @@ body {
 }
 
 .tense-btn {
-    width: 200px;
-    background-color: var(--sec-clr);
-    color: var(--trim-txt);
+    width: 100px;
+    height: 100px;
+    background-color: transparent;
+    color: var(--sec-clr);
     padding: 1rem;
-    border: none;
-    border-radius: 10px;
+    border: 4px solid var(--sec-clr);
+    border-radius: 50%;
     cursor: pointer;
 }
-.tense-btn:hover {
+.btn-box:hover .tense-btn {
     transition: 500ms;
-    background-color: blue;
+    background-color: var(--sec-clr);
+    border: 1px solid var(--sec-clr);
+    border-radius: 10px;
+    color: var(--trim-txt);
 }
 
 .btn-submit {

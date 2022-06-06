@@ -50,25 +50,82 @@
                                     <div class="flex-col">
 
                                             <p>Select the tense you want to practice</p>
-                                            <div class="flex-row">
-                                                <button class="tense-btn" data-practice-btn="infinitive">Infinitive</button> 
-                                            </div>
-                                            <div class="flex-row">
-                                                <button class="tense-btn" data-practice-btn="present">Present</button> 
-                                                <button class="tense-btn" data-practice-btn="serEstar">Ser and Estar</button>                                        
-                                            </div>
-                                            <div class="flex-row">
-                                                <button class="tense-btn" data-practice-btn="preterite">Preterite</button>
-                                                <button class="tense-btn" data-practice-btn="imperfect">Imperfect</button>
-                                            </div>
-                                            <div class="flex-row">
-                                                <button class="tense-btn" data-practice-btn="pretIndef">Preterite Vs Imperfect</button>
-                                            </div>
-                                            <div class="flex-row">
-                                                <button class="tense-btn" data-practice-btn="perfect">Perfect</button>
-                                                <button class="tense-btn" data-practice-btn="pluperfect">Pluperfect</button>
-                                            </div>
+                                            <div class="btn-group">
 
+                                                <div class="flex-row btn-container">
+                                                    <div class="btn-box">
+                                                        <div class="tense-btn" data-practice-btn="infinitive"></div>
+                                                        <p>Infinitive</p> 
+                                                    </div>
+                                                </div>
+                                                <div class="flex-row btn-container">
+                                                    <div class="btn-box">
+                                                        <div class="tense-btn" data-practice-btn="present"></div>
+                                                        <p>Present</p> 
+                                                    </div>
+                                                    <div class="btn-box">
+                                                        <div class="tense-btn" data-practice-btn="serEstar"></div>
+                                                        <p>Ser and Estar</p>                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="btn-group">
+
+                                                <div class="flex-row btn-container">
+                                                    <div class="btn-box">
+                                                        <div class="tense-btn" data-practice-btn="preterite"></div>
+                                                        <p>Preterite</p>
+                                                    </div>
+                                                    <div class="btn-box">
+                                                        <div class="tense-btn" data-practice-btn="imperfect"></div>
+                                                        <p>Imperfect</p>
+                                                    </div>
+                                                </div>
+                                                <div class="flex-row btn-container">
+                                                    <div class="btn-box">
+                                                    <div class="tense-btn" data-practice-btn="pretImp"></div>
+                                                    <p>Preterite Vs Imperfect</p>
+                                                </div>
+                                                </div>
+                                                <div class="flex-row btn-container">
+                                                    <div class="btn-box">
+                                                    <div class="tense-btn" data-practice-btn="perfect"></div>
+                                                    <p>Perfect</p>
+                                                    </div>
+                                                    <div class="btn-box">
+                                                    <div class="tense-btn" data-practice-btn="pluperfect"></div>
+                                                    <p>Pluperfect</p>
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <div class="btn-group">
+
+                                                <div class="flex-row btn-container">
+                                                    <div class="btn-box">
+                                                    <div class="tense-btn" data-practice-btn="presCont"></div>
+                                                    <p>Present Continuous</p>
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <div class="btn-group">
+
+                                                <div class="flex-row btn-container">
+                                                    <div class="btn-box">
+                                                    <div class="tense-btn" data-practice-btn="presCont"></div>
+                                                    <p>Immediate Future</p>
+                                                    </div>
+                                                    <div class="btn-box">
+                                                    <div class="tense-btn" data-practice-btn="presCont"></div>
+                                                    <p>Proper Future</p>
+                                                </div>
+                                                </div>
+                                                <div class="flex-row btn-container">
+                                                    <div class="btn-box">
+                                                    <div class="tense-btn" data-practice-btn="conditional"></div>
+                                                    <p>Conditional</p>
+                                                </div>
+                                                </div>
+                                            </div>
 
                                     </div>
                                     <div class="flex-row">
@@ -99,19 +156,63 @@
                     <div class="section">
                         <div class="info-sm">
                             <h2>Score</h2>
-                            <ul class="sidebar-links">
-                                <li>Present <span data-score-el="present">0</span></li>
-                                <li>Ser & Estar <span data-score-el="serEstar">0</span></li>
-                                <li>Infinitive</li>
-                                <li>Pretrite</li>
-                                <li>Imperfect</li>
-                                <li>Perfect</li>
-                                <li>Pluperfect</li>
-                                <li>Present Continuous</li>
-                                <li>Immediate Future</li>
-                                <li>Proper Future</li>
-                                <li>Conditional</li>
-                            </ul>
+                            <div class="sidebar-links">
+                                <div class="score-group">
+                                    <div class="score-box-name col-50">Infinitive</div>
+                                    <div class="score-box col-50"><span data-score-el="infinitive">0</span> / <span data-totel-el="infinitive">0</span></div>
+                                </div>
+
+                                <div class="score-group">
+                                    <div class="score-box-name col-50">Present</div>
+                                    <div class="score-box col-50"><span data-score-el="present">Incomplete</span></div>
+                                </div>
+
+                                <div class="score-group">
+                                    <div class="score-box-name col-50">Ser & Estar</div>
+                                    <div class="score-box col-50"><span data-score-el="serEstar">0</span> / <span data-totel-el="serEstar">0</span></div>
+                                </div>
+
+                                <div class="score-group">
+                                    <div class="score-box-name col-50">Pretrite</div>
+                                    <div class="score-box col-50"><span data-score-el="preterite">0</span> / <span data-totel-el="preterite">0</span></div>
+                                </div>
+
+                                <div class="score-group">
+                                    <div class="score-box-name col-50">Imperfect</div>
+                                    <div class="score-box col-50"><span data-score-el="imperfect">0</span> / <span data-totel-el="imperfect">0</span></div>
+                                </div>
+
+                                <div class="score-group">
+                                    <div class="score-box-name col-50">Perfect</div>
+                                    <div class="score-box col-50"><span data-score-el="perfect">0</span> / <span data-totel-el="perfect">0</span></div>
+                                </div>
+
+                                <div class="score-group">
+                                    <div class="score-box-name col-50">Pluperfect</div>
+                                    <div class="score-box col-50"><span data-score-el="pluperfect">0</span> / <span data-totel-el="pluperfect">0</span></div>
+                                </div>
+
+                                <div class="score-group">
+                                    <div class="score-box-name col-50">Present Continuous</div>
+                                    <div class="score-box col-50"><span data-score-el="presCont">0</span> / <span data-totel-el="presCont">0</span></div>
+                                </div>
+
+                                <div class="score-group">
+                                    <div class="score-box-name col-50">Immediate Future</div>
+                                    <div class="score-box col-50"><span data-score-el="imFut">0</span> / <span data-totel-el="imFut">0</span></div>
+                                </div>
+
+                                <div class="score-group">
+                                    <div class="score-box-name col-50">Proper Future</div>
+                                    <div class="score-box col-50"><span data-score-el="propFut">0</span> / <span data-totel-el="propFut">0</span></div>
+                                </div>
+
+                                <div class="score-group">
+                                    <div class="score-box-name col-50">Conditional</div>
+                                    <div class="score-box col-50"><span data-score-el="conditional">0</span> / <span data-totel-el="conditional">0</span></div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
 
