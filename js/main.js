@@ -187,6 +187,7 @@ function summary() {
         `
         summaryContainer.innerHTML += summary
     })
+    id('finishBtn').style.display = 'block'
 }
 
 // Reset state

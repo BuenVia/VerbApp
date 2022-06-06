@@ -38,8 +38,17 @@ body {
     flex-wrap: wrap;
 }
 
+.height-container {
+    height: 100vh;
+}
+
 .height-row {
     margin: 3rem 0 1rem;
+}
+
+.align {
+    justify-items:center;
+    align-items: center;
 }
 
 .col {
@@ -104,6 +113,7 @@ body {
 .width-container {
     width: 1200px;
     height: 100vh;
+    background-color: white;
 }
 
 .section {
@@ -168,10 +178,10 @@ body {
     background-position: center;
 }
 .learn {
-    background-image: url('assets/person_female_icon.svg');
+    background-image: url('assets/learn.svg');
 }
 .practice {
-    background-image: url('assets/person_male_icon.svg');
+    background-image: url('assets/practice.svg');
 }
 
 .ex-table {
@@ -286,6 +296,7 @@ body {
 }
 
 .tense-btn {
+    width: 200px;
     background-color: var(--sec-clr);
     color: var(--trim-txt);
     padding: 1rem;
@@ -330,4 +341,18 @@ body {
     transition: 300ms;
     background-color: var(--sec-clr);
     color: var(--trim-txt);
+}
+
+.finish-btn {
+    display: none;
+    background-color: var(--sec-clr);
+    color: var(--trim-txt);
+    padding: 1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.finish-btn:hover {
+    transition: 500ms;
+    background-color: blue;
 }
