@@ -1,9 +1,10 @@
 const tenseContainer = id('tenseContainer')
+const practiceContainer = id('practiceContainer')
+const summaryContainer = id('summaryContainer')
 
 const sectionBtns = document.querySelectorAll('[data-practice-btn]')
 const presentBtn = id('presentBtn')
 
-const practiceContainer = id('practiceContainer')
 
 
 let chosenSub, questionSet, questionIndex = 0, ansBtnAns, userAnswer, ansArr = []
@@ -45,7 +46,8 @@ function loadQuestions(item) {
             nextBtn.style.display = 'block'        
         })
     } else {
-        practiceContainer.innerHTML = 'Completed'
+        practiceContainer.style.display = 'none'
+        summary()
         console.log(ansArr);
     }
 }
@@ -68,6 +70,7 @@ function assignAnswer(item) {
 
 function checkAnswer(item) {
     const answerObj = {
+        instuction: item.instuction,
         question: item.text,
         answer: item.answers.correct,
         userAnswer: userAnswer,
@@ -128,6 +131,27 @@ function generateTemplate(item) {
     }
 }
 
+function summary() {
+    ansArr.forEach(ans => {
+        const correctHtml= `
+        <h4>Correct answer:</h4> 
+        <p>${ans.answer}</p>
+        `
+        const ansCorrect = () => ans.correct === true ? 'correct' : 'incorrect'
+        const showCorrect = () => ans.correct === false ? correctHtml : ''
+        const summary = `
+        <div class="summary-box ${ansCorrect()}">
+            <h3>${ans.instuction}</h3>
+            <p>${ans.question}</p>
+            <h4>Your answer:</h4> 
+            <p>${ans.userAnswer}</p>
+            ${showCorrect()}
+        </div>
+        `
+        summaryContainer.innerHTML += summary
+    })
+}
+
 /////////////////////////////////////////////
 
 function id(id) {
@@ -139,6 +163,7 @@ const questions = {
         one: {
             tense: 'Present',
             type: 'write',
+            instuction: 'Translate this word to Spanish',
             text: 'to have',
             answers: {
                 correct: 'tener',
@@ -146,7 +171,9 @@ const questions = {
             }
         },
         two: {
+            tense: 'Present',
             type: 'multipleChoice',
+            instuction: 'Select the correct word',
             text: 'Yo __________ a mi amigo.',
             answers: {
                 correct: 'visito',
