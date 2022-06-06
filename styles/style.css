@@ -4,8 +4,8 @@
     --trim-txt: white;
     --sec-clr: rgb(1, 1, 70);
     --btn-clr: rgb(25, 196, 25);
-    --correct: rgb(96, 212, 96);
-    --incorrect: rgb(212, 96, 96);
+    --correct: rgb(178, 247, 178);
+    --incorrect: rgb(247, 151, 151);
 }
 
 *, *::after, *::before {
@@ -271,9 +271,11 @@ body {
 
 .correct {
     background-color: var(--correct);
+    color: rgb(12, 147, 48);
 }
 .incorrect {
     background-color: var(--incorrect);
+    color: rgb(176, 60, 60);
 }
 
 .btn {
