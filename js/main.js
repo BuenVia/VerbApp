@@ -114,6 +114,7 @@ function checkAnswer(item) {
         id('header').innerHTML = `<h1>Correct</h1>`
         id('header').style.backgroundColor = 'var(--correct)'
         answerObj.correct = true
+        playaudio(item.fullText, 1)
     } else {
         id('header').innerHTML = `<h1>Wrong</h1>`
         id('header').style.backgroundColor = 'var(--incorrect)'
@@ -199,6 +200,15 @@ function summary() {
         summaryContainer.innerHTML += summary
     })
     id('finishBtn').style.display = 'block'
+}
+
+function playaudio(text, speed) {
+    const speech = new SpeechSynthesisUtterance()
+    if(speechSynthesis.speaking) return
+    speech.lang = 'es-ES'
+    speech.text = text
+    speech.rate = speed || 1
+    speechSynthesis.speak(speech)
 }
 
 // Reset state

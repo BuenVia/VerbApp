@@ -8,7 +8,8 @@ export const questions = {
             answers: {
                 correct: 'tener',
                 other: null
-            }
+            }, 
+            fullText: 'tener'
         },
         two: {
             tense: 'Present',
@@ -21,7 +22,8 @@ export const questions = {
                     one: 'visita',
                     two: 'visitas'
                 }
-            }
+            },
+            fullText: 'Yo visito a mi amigo'
         }
     },
     serEstar: {
@@ -34,7 +36,8 @@ export const questions = {
                     one: 'son',
                     two: 'sois'
                 }
-            }
+            },
+            fullText: 'Daniel y yo somos griegos'
         },
         two: {
             type: 'write',
@@ -42,7 +45,8 @@ export const questions = {
             answers: {
                 correct: 'El libro está en mi mochila',
                 other: null
-            }
+            },
+            fullText: 'El libro está en mi mochila'
         }
     }
 }
