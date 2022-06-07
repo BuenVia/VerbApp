@@ -15,10 +15,20 @@ const scoreObj = {
     serEstar: null
 }
 
-let chosenSub, questionSet, questionIndex = 0, ansBtnAns, userAnswer, ansArr = [], answerObj
+// The questions variable (pulled from questionSet.js) + chosenSub. eg... questions.present
+let questionSet
+// The questions variable + chosenSub + position of current item in the chosenSub. eg... questions.present[0]
+let questionIndex = 0
 
-// Fix scoring
+
+
+let ansBtnAns
+let userAnswer
+let ansArr = []
+let answerObj
+
 // Condense number of objects/ variables into one or two objects
+// Fix scoring
 // Refactor template function
 // Update id('') in to const variables
 // Fill out question set
@@ -26,20 +36,19 @@ let chosenSub, questionSet, questionIndex = 0, ansBtnAns, userAnswer, ansArr = [
 // Assign question set
 sectionBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-        tenseContainer.style.display = 'none'
-        practiceContainer.style.display = 'block'
-        // Assign user selection to chosenSub variable
         const btnDataSet = btn.dataset.practiceBtn
         if(questions.hasOwnProperty(btnDataSet)) {
-            chosenSub = btnDataSet
+            questionSet = Object.values(questions[btnDataSet])
+            questionSet.scores = 'new'
+            console.log(questionSet)
+            loadQuestions(questionSet[questionIndex])
+            tenseContainer.style.display = 'none'
+            practiceContainer.style.display = 'block'
         } else {
             alert('Sorry, your choice doesn\'t exist yet')
         }
-        questionSet = Object.values(questions[chosenSub])
-        loadQuestions(questionSet[questionIndex])
     })
 })
-
 
 // Render question next question to screen
 function loadQuestions(item) {
@@ -68,14 +77,12 @@ function loadQuestions(item) {
         summary()
         id('header').innerHTML = score(ansArr)
         // Condense down in to one or two objects
-        console.log(chosenSub);
-        console.log(questionSet);
-        console.log(questionIndex);
-        console.log(ansBtnAns);
-        console.log(userAnswer);
-        console.log(ansArr);
-        console.log(scoreObj);
-        console.log(answerObj);
+        // console.log(questionSet);
+        // console.log(ansBtnAns);
+        // console.log(userAnswer);
+        // console.log(ansArr);
+        // console.log(scoreObj);
+        // console.log(answerObj);
 
         id('finishBtn').addEventListener('click', () => {
             resetState()
@@ -137,7 +144,6 @@ function score(item) {
             correctScore++
         }
     }
-    scoreObj[chosenSub] = correctScore
     return `<h1>Score: ${correctScore} / ${item.length}</h1>`
 }
 
@@ -214,7 +220,6 @@ function playaudio(text, speed) {
 
 // Reset state
 function resetState() {
-    chosenSub = ''
     questionSet = ''
     questionIndex = 0
     ansBtnAns = ''
