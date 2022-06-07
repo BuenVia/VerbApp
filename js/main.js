@@ -5,10 +5,16 @@ const practiceContainer = id('practiceContainer')
 const summaryContainer = id('summaryContainer')
 
 const sectionBtns = document.querySelectorAll('[data-practice-btn]')
-const presentBtn = id('presentBtn')
 
+const headerEl = id('header')
 const scoreEls = document.querySelectorAll('[data-score-el]')
 const totalEls = document.querySelectorAll('[data-total-el]')
+
+const testObj = {
+    scores: null,
+} // Test object to push everything to?
+
+
 
 const scoreObj = {
     present: null,
@@ -30,7 +36,6 @@ let answerObj
 // Condense number of objects/ variables into one or two objects
 // Fix scoring
 // Refactor template function
-// Update id('') in to const variables
 // Fill out question set
 
 // Assign question set
@@ -39,8 +44,8 @@ sectionBtns.forEach(btn => {
         const btnDataSet = btn.dataset.practiceBtn
         if(questions.hasOwnProperty(btnDataSet)) {
             questionSet = Object.values(questions[btnDataSet])
-            questionSet.scores = 'new'
-            console.log(questionSet)
+            testObj.questions = Object.values(questions[btnDataSet])
+            console.log(testObj)
             loadQuestions(questionSet[questionIndex])
             tenseContainer.style.display = 'none'
             practiceContainer.style.display = 'block'
@@ -75,7 +80,7 @@ function loadQuestions(item) {
     } else {
         practiceContainer.style.display = 'none'
         summary()
-        id('header').innerHTML = score(ansArr)
+        headerEl.innerHTML = score(ansArr)
         // Condense down in to one or two objects
         // console.log(questionSet);
         // console.log(ansBtnAns);
@@ -86,7 +91,7 @@ function loadQuestions(item) {
 
         id('finishBtn').addEventListener('click', () => {
             resetState()
-            id('header').innerHTML = `<h1>Practice</h1>` // Change to be tense
+            headerEl.innerHTML = `<h1>Practice</h1>` // Change to be tense
             summaryContainer.style.display = 'none'
             tenseContainer.style.display = 'block'
             // Show scores
@@ -109,8 +114,8 @@ function assignAnswer(item) {
     checkAnswer(item)
     nextBtn.addEventListener('click', () => {
         questionIndex++
-        id('header').innerHTML = `<h1>Practice</h1>` // Change to be tense
-        id('header').style.backgroundColor = ''
+        headerEl.innerHTML = `<h1>Practice</h1>` // Change to be tense
+        headerEl.style.backgroundColor = ''
         loadQuestions(questionSet[questionIndex])
     })
 }
@@ -125,13 +130,13 @@ function checkAnswer(item) {
         correct: undefined
     }
     if (userAnswer === item.answers.correct) {
-        id('header').innerHTML = `<h1>Correct</h1>`
-        id('header').style.backgroundColor = 'var(--correct)'
+        headerEl.innerHTML = `<h1>Correct</h1>`
+        headerEl.style.backgroundColor = 'var(--correct)'
         answerObj.correct = true
         playaudio(item.fullText, 1)
     } else {
-        id('header').innerHTML = `<h1>Wrong</h1>`
-        id('header').style.backgroundColor = 'var(--incorrect)'
+        headerEl.innerHTML = `<h1>Wrong</h1>`
+        headerEl.style.backgroundColor = 'var(--incorrect)'
         answerObj.correct = false
     }
     ansArr.push(answerObj)
