@@ -10,30 +10,18 @@ const headerEl = id('header')
 const scoreEls = document.querySelectorAll('[data-score-el]')
 const totalEls = document.querySelectorAll('[data-total-el]')
 
-const testObj = {
-    scores: null,
-} // Test object to push everything to?
-
-
-
-const scoreObj = {
-    present: null,
-    serEstar: null
-}
 
 // The questions variable (pulled from questionSet.js) + chosenSub. eg... questions.present
 let questionSet
 // The questions variable + chosenSub + position of current item in the chosenSub. eg... questions.present[0]
 let questionIndex = 0
-
-
-
-let ansBtnAns
+// User's answer to each questions is assigned to this variable
 let userAnswer
+// After user answers question, it is pushed to this array
 let ansArr = []
-let answerObj
 
-// Condense number of objects/ variables into one or two objects
+
+
 // Fix scoring
 // Refactor template function
 // Fill out question set
@@ -44,8 +32,6 @@ sectionBtns.forEach(btn => {
         const btnDataSet = btn.dataset.practiceBtn
         if(questions.hasOwnProperty(btnDataSet)) {
             questionSet = Object.values(questions[btnDataSet])
-            testObj.questions = Object.values(questions[btnDataSet])
-            console.log(testObj)
             loadQuestions(questionSet[questionIndex])
             tenseContainer.style.display = 'none'
             practiceContainer.style.display = 'block'
@@ -62,17 +48,19 @@ function loadQuestions(item) {
         genTemp(item)
         const submitBtn = id('submitBtn')
         const nextBtn = id('nextBtn')
-        // If a multiple choice question, assign the user's answer to a variable called ansBtnAns
+        // If a multiple choice question, assign the user's answer to a variable called userAnswer
+        const userAnswerEl = id('userAnswerEl')
         if (item.type === 'multipleChoice') {
             const userAnsBtn = document.querySelectorAll('[data-ans-btn]')
             userAnsBtn.forEach(ansBtn => {
                 ansBtn.addEventListener('click', () => {
-                    ansBtnAns = ansBtn.dataset.ansBtn
                     ansBtn.style.backgroundColor = 'red'
+                    userAnswer = ansBtn.dataset.ansBtn
                 })
             })
         }
         submitBtn.addEventListener('click', () => {
+            if (item.type === 'write') userAnswer = userAnswerEl.value
             submitBtn.style.display = 'none'
             assignAnswer(item)
             nextBtn.style.display = 'block'        
@@ -81,23 +69,17 @@ function loadQuestions(item) {
         practiceContainer.style.display = 'none'
         summary()
         headerEl.innerHTML = score(ansArr)
-        // Condense down in to one or two objects
-        // console.log(questionSet);
-        // console.log(ansBtnAns);
-        // console.log(userAnswer);
-        // console.log(ansArr);
-        // console.log(scoreObj);
-        // console.log(answerObj);
-
         id('finishBtn').addEventListener('click', () => {
             resetState()
+            id('finishBtn').style.display = 'none'
+            summaryContainer.innerHTML = ''
             headerEl.innerHTML = `<h1>Practice</h1>` // Change to be tense
             summaryContainer.style.display = 'none'
             tenseContainer.style.display = 'block'
             // Show scores
             scoreEls.forEach(scoreEl => {
                 const scoreNum = scoreEl.dataset.scoreEl
-                scoreEl.innerHTML = `${scoreObj[scoreNum]} out of ${questionSet.length}` //Assigns score to sidebar
+                scoreEl.innerHTML = ` out of ${questionSet.length}` //Assigns score to sidebar
             })
         })
     }
@@ -105,12 +87,6 @@ function loadQuestions(item) {
 
 // Assigns the user answer to a variable
 function assignAnswer(item) {
-    const userAnswerEl = id('userAnswerEl')
-    if (item.type === 'write') {
-        userAnswer = userAnswerEl.value
-    } else if (item.type === 'multipleChoice') {
-        userAnswer = ansBtnAns
-    }
     checkAnswer(item)
     nextBtn.addEventListener('click', () => {
         questionIndex++
@@ -122,24 +98,19 @@ function assignAnswer(item) {
 
 // Checks user answer against actual answer and saves it to object
 function checkAnswer(item) {
-    answerObj = {
-        instuction: item.instuction,
-        question: item.text,
-        answer: item.answers.correct,
-        userAnswer: userAnswer,
-        correct: undefined
-    }
-    if (userAnswer === item.answers.correct) {
+    questionSet[questionIndex].userAnswer = userAnswer
+    if (userAnswer === questionSet[questionIndex].answers.correct) {
         headerEl.innerHTML = `<h1>Correct</h1>`
         headerEl.style.backgroundColor = 'var(--correct)'
-        answerObj.correct = true
+        questionSet[questionIndex].correct = true
         playaudio(item.fullText, 1)
     } else {
         headerEl.innerHTML = `<h1>Wrong</h1>`
         headerEl.style.backgroundColor = 'var(--incorrect)'
-        answerObj.correct = false
+        questionSet[questionIndex].correct = false
     }
-    ansArr.push(answerObj)
+    ansArr.push(questionSet[questionIndex])
+    console.log(ansArr)
 }
 
 function score(item) {
@@ -196,14 +167,14 @@ function summary() {
     ansArr.forEach(ans => {
         const correctHtml= `
         <h4>Correct answer:</h4> 
-        <p>${ans.answer}</p>
+        <p>${ans.answers.correct}</p>
         `
         const ansCorrect = () => ans.correct === true ? 'correct' : 'incorrect'
         const showCorrect = () => ans.correct === false ? correctHtml : ''
         const summary = `
         <div class="summary-box ${ansCorrect()}">
             <h3>${ans.instuction}</h3>
-            <p>${ans.question}</p>
+            <p>${ans.fullText}</p>
             <h4>Your answer:</h4> 
             <p>${ans.userAnswer}</p>
             ${showCorrect()}
@@ -227,9 +198,7 @@ function playaudio(text, speed) {
 function resetState() {
     questionSet = ''
     questionIndex = 0
-    ansBtnAns = ''
     userAnswer = ''
-    ansArr = []
 }
 
 /////////////////////////////////////////////
