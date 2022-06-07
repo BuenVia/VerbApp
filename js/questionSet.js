@@ -1,4 +1,7 @@
 export const questions = {
+    infinitive: {
+        // To be determined
+    },
     present: {
         one: {
             tense: 'Present',
@@ -28,7 +31,9 @@ export const questions = {
     },
     serEstar: {
         one: {
+            tense: 'Ser and Estar',
             type: 'multipleChoice',
+            instuction: 'Select the correct word',
             text: 'Daniel y yo __________ griegos.',
             answers: {
                 correct: 'somos',
@@ -40,7 +45,9 @@ export const questions = {
             fullText: 'Daniel y yo somos griegos'
         },
         two: {
+            tense: 'Ser and Estar',
             type: 'write',
+            instuction: 'Translate this word to Spanish',
             text: 'The book is in my rucksack.',
             answers: {
                 correct: 'El libro está en mi mochila',

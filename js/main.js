@@ -17,6 +17,12 @@ const scoreObj = {
 
 let chosenSub, questionSet, questionIndex = 0, ansBtnAns, userAnswer, ansArr = [], answerObj
 
+// Fix scoring
+// Condense number of objects/ variables into one or two objects
+// Refactor template function
+// Update id('') in to const variables
+// Fill out question set
+
 // Assign question set
 sectionBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -38,7 +44,8 @@ sectionBtns.forEach(btn => {
 // Render question next question to screen
 function loadQuestions(item) {
     if (questionIndex < questionSet.length) {
-        generateTemplate(item)
+        // generateTemplate(item)
+        genTemp(item)
         const submitBtn = id('submitBtn')
         const nextBtn = id('nextBtn')
         // If a multiple choice question, assign the user's answer to a variable called ansBtnAns
@@ -135,47 +142,41 @@ function score(item) {
 }
 
 // Generates template for each question before rendering to screen
-function generateTemplate(item) {
-    if(item.type === 'multipleChoice') {
-        const multipleChoice = `
-        <div class="text-sm">
-            <h3 id="titleEl">${item.tense}</h3>
+function genTemp(item) {
+    const tempType = () => {
+        if(item.type === 'write') {
+            return `
+                <textarea name="" id="userAnswerEl" cols="30" rows="10"></textarea>
+            </div>
+            `
+        }    
+        if(item.type === 'multipleChoice') {
+            return `
+            </div>
             <div class="flex-col">
-                <div>
-                    <p>${item.text}</p>
-                </div>
-                <div class="flex-col">
-                    <button class="ans-btn" id="ansBtn" data-ans-btn="${item.answers.other.one}">${item.answers.other.one}</button>
-                    <button class="ans-btn" id="ansBtn" data-ans-btn="${item.answers.correct}">${item.answers.correct}</button>
-                    <button class="ans-btn" id="ansBtn" data-ans-btn="${item.answers.other.two}">${item.answers.other.two}</button>
-                </div>
-                <div>
-                    <button class="btn btn-submit" id="submitBtn">Submit</button>
-                    <button class="btn btn-next" id="nextBtn">Next</button>
-                </div>
+                <button class="ans-btn" id="ansBtn" data-ans-btn="${item.answers.other.one}">${item.answers.other.one}</button>
+                <button class="ans-btn" id="ansBtn" data-ans-btn="${item.answers.correct}">${item.answers.correct}</button>
+                <button class="ans-btn" id="ansBtn" data-ans-btn="${item.answers.other.two}">${item.answers.other.two}</button>
+            </div>
+            `
+        }
+    }
+
+    const html = `
+    <div class="text-sm" id="textSmEl">
+        <h3 id="titleEl">${item.instuction}</h3>
+        <div class="flex-col">
+            <div class="flex-col translate-box">
+                <p>${item.text}</p>
+                ${tempType()}
+            <div>
+                <button class="btn btn-submit" id="submitBtn">Submit</button>
+                <button class="btn btn-next" id="nextBtn">Next</button>
             </div>
         </div>
-        `
-        practiceContainer.innerHTML = multipleChoice
-    }
-    if(item.type === 'write') {
-        const write = `
-        <div class="text-sm" id="textSmEl">
-            <h3 id="titleEl">${item.tense}</h3>
-            <div class="flex-col">
-                <div class="flex-col translate-box">
-                    <p>${item.text}</p>
-                    <textarea name="" id="userAnswerEl" cols="30" rows="10"></textarea>
-                </div>
-                <div>
-                    <button class="btn btn-submit" id="submitBtn">Submit</button>
-                    <button class="btn btn-next" id="nextBtn">Next</button>
-                </div>
-            </div>
-        </div>
-        `
-        practiceContainer.innerHTML = write
-    }
+    </div>
+    `
+    practiceContainer.innerHTML = html
 }
 
 // Generates and renders summary to screen after user has answered questions
