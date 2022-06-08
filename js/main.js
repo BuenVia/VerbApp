@@ -19,6 +19,8 @@ let questionIndex = 0
 let userAnswer
 // After user answers question, it is pushed to this array
 let ansArr = []
+// Last 10 wrong answers
+let wrongAnsHist = []
 
 
 
@@ -77,9 +79,8 @@ function loadQuestions(item) {
             summaryContainer.style.display = 'none'
             tenseContainer.style.display = 'block'
             // Show scores
-            scoreEls.forEach(scoreEl => {
-                const scoreNum = scoreEl.dataset.scoreEl
-                scoreEl.innerHTML = ` out of ${questionSet.length}` //Assigns score to sidebar
+            wrongAnsHist.forEach(wrongAns => {
+                id('wrongAns').innerHTML += `${wrongAns.tense}, ${wrongAns.fullText}` // Develope to show more info
             })
         })
     }
@@ -108,9 +109,10 @@ function checkAnswer(item) {
         headerEl.innerHTML = `<h1>Wrong</h1>`
         headerEl.style.backgroundColor = 'var(--incorrect)'
         questionSet[questionIndex].correct = false
+        wrongAnsHist.push(questionSet[questionIndex])
+        console.log(wrongAnsHist)
     }
     ansArr.push(questionSet[questionIndex])
-    console.log(ansArr)
 }
 
 function score(item) {
@@ -199,6 +201,7 @@ function resetState() {
     questionSet = ''
     questionIndex = 0
     userAnswer = ''
+    ansArr = []
 }
 
 /////////////////////////////////////////////
