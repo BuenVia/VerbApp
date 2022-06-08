@@ -21,8 +21,10 @@ let userAnswer
 let ansArr = []
 // Last 10 wrong answers
 let wrongAnsHist = []
-
-
+// Final score
+let finalScore = {correct: 0, total: 0}
+// Score history
+let scoreHistory = []
 
 // Fix scoring
 // Refactor template function
@@ -79,7 +81,7 @@ function loadQuestions(item) {
             headerEl.innerHTML = `<h1>Practice</h1>` // Change to be tense
             summaryContainer.style.display = 'none'
             tenseContainer.style.display = 'block'
-            wrongAnsHistTemp()
+            scoreTemp()
         })
     }
 }
@@ -98,7 +100,10 @@ function assignAnswer(item) {
 // Checks user answer against actual answer and saves it to object
 function checkAnswer(item) {
     questionSet[questionIndex].userAnswer = userAnswer
+    finalScore.tense = item.tense
+    finalScore.total++
     if (userAnswer === questionSet[questionIndex].answers.correct) {
+        finalScore.correct++
         headerEl.innerHTML = `<h1>Correct</h1>`
         headerEl.style.backgroundColor = 'var(--correct)'
         questionSet[questionIndex].correct = true
@@ -108,7 +113,6 @@ function checkAnswer(item) {
         headerEl.style.backgroundColor = 'var(--incorrect)'
         questionSet[questionIndex].correct = false
         wrongAnsHist.push(questionSet[questionIndex])
-        console.log(wrongAnsHist)
     }
     ansArr.push(questionSet[questionIndex])
 }
@@ -183,13 +187,34 @@ function summary() {
         summaryContainer.innerHTML += summary
     })
     id('finishBtn').style.display = 'block'
+    if(scoreHistory.length < 5) {
+        scoreHistory.push(finalScore)
+      } else {
+        scoreHistory.splice(0,1)
+        scoreHistory.push(finalScore)
+      }
 }
 
-function wrongAnsHistTemp() {
+function scoreTemp() {
     if (wrongAnsHist.length > 0) {
-        id('wrongAns').innerHTML = `<button class="btn btn-submit">Practice</button>`
+        practiceWeak()
+        scoreHistory.forEach(score => {
+            id('wrongAns').innerHTML += `
+            <div>
+                <h4>${score.tense}</h4>
+                <p>Score: ${score.correct} / ${score.total}</p>
+            </div>
+            `
+        })
+
     }
-    console.log(wrongAnsHist.length)
+}
+
+function practiceWeak() {
+    id('wrongAns').innerHTML = `<button class="btn btn-submit" id="practiceBtn">Practice</button>`
+    id('practiceBtn').addEventListener('click', () => {
+        console.log(true);
+    })
 }
 
 function playaudio(text, speed) {
@@ -207,6 +232,7 @@ function resetState() {
     questionIndex = 0
     userAnswer = ''
     ansArr = []
+    finalScore = {correct: 0, total: 0}
 }
 
 /////////////////////////////////////////////
