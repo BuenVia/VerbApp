@@ -210,12 +210,7 @@ function scoreTemp() {
     }
 }
 
-function practiceWeak() {
-    id('wrongAns').innerHTML = `<button class="btn btn-submit" id="practiceBtn">Practice</button>`
-    id('practiceBtn').addEventListener('click', () => {
-        console.log(true);
-    })
-}
+
 
 function playaudio(text, speed) {
     const speech = new SpeechSynthesisUtterance()
