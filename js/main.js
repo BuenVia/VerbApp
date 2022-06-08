@@ -197,9 +197,10 @@ function summary() {
 
 function scoreTemp() {
     if (wrongAnsHist.length > 0) {
-        practiceWeak()
+        id('wrongAns').innerHTML = `<button class="btn btn-submit">Practice</button>`
+
         scoreHistory.forEach(score => {
-            id('wrongAns').innerHTML += `
+            id('scoreEl').innerHTML += `
             <div>
                 <h4>${score.tense}</h4>
                 <p>Score: ${score.correct} / ${score.total}</p>
@@ -209,8 +210,6 @@ function scoreTemp() {
 
     }
 }
-
-
 
 function playaudio(text, speed) {
     const speech = new SpeechSynthesisUtterance()
