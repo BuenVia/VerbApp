@@ -27,6 +27,7 @@ let wrongAnsHist = []
 // Fix scoring
 // Refactor template function
 // Fill out question set
+// Responsive design
 
 // Assign question set
 sectionBtns.forEach(btn => {
@@ -78,10 +79,7 @@ function loadQuestions(item) {
             headerEl.innerHTML = `<h1>Practice</h1>` // Change to be tense
             summaryContainer.style.display = 'none'
             tenseContainer.style.display = 'block'
-            // Show scores
-            wrongAnsHist.forEach(wrongAns => {
-                id('wrongAns').innerHTML += `${wrongAns.tense}, ${wrongAns.fullText}` // Develope to show more info
-            })
+            wrongAnsHistTemp()
         })
     }
 }
@@ -185,6 +183,13 @@ function summary() {
         summaryContainer.innerHTML += summary
     })
     id('finishBtn').style.display = 'block'
+}
+
+function wrongAnsHistTemp() {
+    if (wrongAnsHist.length > 0) {
+        id('wrongAns').innerHTML = `<button class="btn btn-submit">Practice</button>`
+    }
+    console.log(wrongAnsHist.length)
 }
 
 function playaudio(text, speed) {
