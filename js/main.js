@@ -7,9 +7,6 @@ const summaryContainer = id('summaryContainer')
 const sectionBtns = document.querySelectorAll('[data-practice-btn]')
 
 const headerEl = id('header')
-const scoreEls = document.querySelectorAll('[data-score-el]')
-const totalEls = document.querySelectorAll('[data-total-el]')
-
 
 // The questions variable (pulled from questionSet.js) + chosenSub. eg... questions.present
 let questionSet
@@ -22,14 +19,12 @@ let ansArr = []
 // Last 10 wrong answers
 let wrongAnsHist = []
 // Final score
-let finalScore = {correct: 0, total: 0}
+let finalScore = {date: null, correct: 0, total: 0}
 // Score history
 let scoreHistory = []
 
-// Fix scoring
-// Refactor template function
-// Fill out question set
 // Responsive design
+// Fill out question set
 
 // Assign question set
 sectionBtns.forEach(btn => {
@@ -59,10 +54,23 @@ function loadQuestions(item) {
             const userAnsBtn = document.querySelectorAll('[data-ans-btn]')
             userAnsBtn.forEach(ansBtn => {
                 ansBtn.addEventListener('click', () => {
-                    ansBtn.style.backgroundColor = 'red'
                     userAnswer = ansBtn.dataset.ansBtn
+                    highlight()
                 })
             })
+            // Higlight the choice
+            function highlight() {
+                userAnsBtn.forEach(ansBtn => {
+                    if(ansBtn.dataset.ansBtn === userAnswer) {
+                        ansBtn.style.backgroundColor = 'var(--sec-clr)'
+                        ansBtn.style.color = 'var(--trim-txt)'
+                    } else {
+                        ansBtn.style.backgroundColor = ''
+                        ansBtn.style.color = ''
+                    }
+                })
+            }
+
         }
         submitBtn.addEventListener('click', () => {
             if (item.type === 'write') userAnswer = userAnswerEl.value
@@ -73,11 +81,12 @@ function loadQuestions(item) {
     } else {
         practiceContainer.style.display = 'none'
         summary()
-        headerEl.innerHTML = score(ansArr)
+        headerEl.innerHTML = '<h1>Summary</h1>'
+        id('scoreContainer').innerHTML = score(ansArr)
         id('finishBtn').addEventListener('click', () => {
             resetState()
             id('finishBtn').style.display = 'none'
-            summaryContainer.innerHTML = ''
+            id('summaryBoxContainer').innerHTML = ''
             headerEl.innerHTML = `<h1>Practice</h1>` // Change to be tense
             summaryContainer.style.display = 'none'
             tenseContainer.style.display = 'block'
@@ -101,6 +110,7 @@ function assignAnswer(item) {
 function checkAnswer(item) {
     questionSet[questionIndex].userAnswer = userAnswer
     finalScore.tense = item.tense
+    finalScore.date = dateFormat()
     finalScore.total++
     if (userAnswer === questionSet[questionIndex].answers.correct) {
         finalScore.correct++
@@ -117,6 +127,7 @@ function checkAnswer(item) {
     ansArr.push(questionSet[questionIndex])
 }
 
+// Work out in-test scoring
 function score(item) {
     let correctScore = 0
     for (let i = 0; i < item.length; i++) {
@@ -124,7 +135,7 @@ function score(item) {
             correctScore++
         }
     }
-    return `<h1>Score: ${correctScore} / ${item.length}</h1>`
+    return `<p><span style="font-weight: 900">Score: </span>${correctScore} / ${item.length}</p>`
 }
 
 // Generates template for each question before rendering to screen
@@ -167,7 +178,7 @@ function genTemp(item) {
 
 // Generates and renders summary to screen after user has answered questions
 function summary() {
-    summaryContainer.style.display = 'block'
+    summaryContainer.style.display = 'flex'
     ansArr.forEach(ans => {
         const correctHtml= `
         <h4>Correct answer:</h4> 
@@ -176,15 +187,17 @@ function summary() {
         const ansCorrect = () => ans.correct === true ? 'correct' : 'incorrect'
         const showCorrect = () => ans.correct === false ? correctHtml : ''
         const summary = `
-        <div class="summary-box ${ansCorrect()}">
-            <h3>${ans.instuction}</h3>
-            <p>${ans.fullText}</p>
-            <h4>Your answer:</h4> 
-            <p>${ans.userAnswer}</p>
-            ${showCorrect()}
+        <div class="summary-item">
+            <div class="summary-box ${ansCorrect()}">
+                <h3>${ans.instuction}</h3>
+                <p>${ans.fullText}</p>
+                <h4>Your answer:</h4> 
+                <p>${ans.userAnswer}</p>
+                ${showCorrect()}
+            </div>
         </div>
         `
-        summaryContainer.innerHTML += summary
+        id('summaryBoxContainer').innerHTML += summary
     })
     id('finishBtn').style.display = 'block'
     if(scoreHistory.length < 5) {
@@ -195,22 +208,46 @@ function summary() {
       }
 }
 
+// Render score history template to screen
 function scoreTemp() {
-    if (wrongAnsHist.length > 0) {
-        id('wrongAns').innerHTML = `<button class="btn btn-submit">Practice</button>`
+    id('scoreEl').innerHTML = ''
+    scoreHistory.forEach(score => {
+        id('scoreEl').innerHTML += `
+        <div class="text-sm">
+            <h4>${score.tense}</h4>
+            <p>${score.date}</p>
+            <p>Score: ${score.correct} / ${score.total}</p>
+        </div>
+        `
+    })
+}
 
-        scoreHistory.forEach(score => {
-            id('scoreEl').innerHTML += `
-            <div>
-                <h4>${score.tense}</h4>
-                <p>Score: ${score.correct} / ${score.total}</p>
-            </div>
-            `
-        })
+// Format date
+function dateFormat() {
+    const daysofWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+    const monthName = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    const date = new Date()
+    const dayWeek = daysofWeek[date.getDay()]
+    let day = date.getDate()
+    let month = monthName[date.getMonth() + 1]
+    const year = date.getFullYear()
+    let hour = date.getHours()
+    let mins = date.getMinutes()
+    hour = addZero(hour)
+    mins = addZero(mins)
 
+    return `${dayWeek} ${day} ${month} ${year} @ ${hour}: ${mins}`
+
+    function addZero(el) {
+        if (el < 10) {
+            return `0${el}`
+        } else {
+            return el
+        }
     }
 }
 
+// Play audio at end of each correct answer
 function playaudio(text, speed) {
     const speech = new SpeechSynthesisUtterance()
     if(speechSynthesis.speaking) return
@@ -229,7 +266,6 @@ function resetState() {
     finalScore = {correct: 0, total: 0}
 }
 
-/////////////////////////////////////////////
 // Helper
 function id(id) {
     return document.getElementById(id)

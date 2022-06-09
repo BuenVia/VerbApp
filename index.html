@@ -6,76 +6,164 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
-    <script src="js/script.js" type="module"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <script src="js/main.js" type="module"></script>
     <title>BuenVia</title>
 </head>
 <body >
+
+    <nav>
+        <div class="navbar">
+            <div>
+                <ul class="nav-links flex-row">
+                    <a href="index.html"><li><img src="styles/assets/study.png" class="img-png">PRACTICE</li></a>
+                    <a href="learn.html"><li><img src="styles/assets/online-learning.png" class="img-png">LEARN</li></a>
+                </ul>
+            </div>
+        </div>
+    </nav>
     
-    <main class="center">
+    <main class="flex-col">
         <div class="width-container">
 
-            <nav>
-                <div class="navbar">
-                    <div class="logo">
-                        <img src="styles/assets/logo.png" alt="">
-                    </div>
-                    <div>
-                        <ul class="nav-links flex-row">
-                            <a href="index.html"><li>HOME</li></a>
-                            <a href="practice.html"><li>PRACTICE</li></a>
-                            <a href="learn.html"><li>LEARN</li></a>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-
-            <div class="flex-row height-row">
+            <div class="flex-row">
                 <div class="col-75" id="lessonContainer">
 
-                    <!--USING VERBS-->
-                    <section id="usingVerbs">
+                    <!--DASHBOARD-->
+                    <section>
+                        <div class="header-lg" id="header">
+                            <h1>Practice</h1>
+                        </div>
+    
+                            <div class="section" id="tenseContainer">
+                                <div class="text-sm">
+                                    <div class="flex-col">
+
+                                        <p>Select the tense you want to practice</p>
+                                        
+                                        <div class="btn-group">
+                                            <div class="flex-row btn-container">
+                                                <div class="flex-col">
+                                                    <div class="tense-btn" data-practice-btn="infinitive"></div>
+                                                    <h4>Infinitive</h4> 
+                                                </div>
+                                            </div>
+                                            <div class="flex-row btn-container">
+                                                <div class="flex-col">
+                                                    <div class="tense-btn" data-practice-btn="present"></div>
+                                                    <p>Present</p> 
+                                                </div>
+                                                <div class="flex-col">
+                                                    <div class="tense-btn" data-practice-btn="serEstar"></div>
+                                                    <p>Ser and Estar</p>                                        
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="btn-group">
+                                            <div class="flex-row btn-container">
+                                                <div class="flex-col">
+                                                    <div class="tense-btn" data-practice-btn="preterite"></div>
+                                                    <p>Preterite</p>
+                                                </div>
+                                                <div class="flex-col">
+                                                    <div class="tense-btn" data-practice-btn="imperfect"></div>
+                                                    <p>Imperfect</p>
+                                                </div>
+                                            </div>
+                                            <div class="flex-row btn-container">
+                                                <div class="flex-col">
+                                                <div class="tense-btn" data-practice-btn="pretImp"></div>
+                                                <p>Preterite Vs Imperfect</p>
+                                            </div>
+                                            </div>
+                                            <div class="flex-row btn-container">
+                                                <div class="flex-col">
+                                                <div class="tense-btn" data-practice-btn="perfect"></div>
+                                                <p>Perfect</p>
+                                                </div>
+                                                <div class="flex-col">
+                                                <div class="tense-btn" data-practice-btn="pluperfect"></div>
+                                                <p>Pluperfect</p>
+                                            </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="btn-group">
+                                            <div class="flex-row btn-container">
+                                                <div class="flex-col">
+                                                <div class="tense-btn" data-practice-btn="presCont"></div>
+                                                <p>Present Continuous</p>
+                                            </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="btn-group">
+                                            <div class="flex-row btn-container">
+                                                <div class="flex-col">
+                                                <div class="tense-btn" data-practice-btn="presCont"></div>
+                                                <p>Immediate Future</p>
+                                                </div>
+                                                <div class="flex-col">
+                                                <div class="tense-btn" data-practice-btn="presCont"></div>
+                                                <p>Proper Future</p>
+                                            </div>
+                                            </div>
+                                            <div class="flex-row btn-container">
+                                                <div class="flex-col">
+                                                <div class="tense-btn" data-practice-btn="conditional"></div>
+                                                <p>Conditional</p>
+                                            </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="flex-row">
+                                        <ul>
+                                            <a href="present.html">Present</a>
+                                            <a href="ser_estar.html">Ser and Estar</a>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        
+
+                            <!--PRACTICE CONTAINER-->
+                            <div class="section" id="practiceContainer"></div>
+
+                            <div class="flex-col" id="summaryContainer">
+                                <div class="text-sm score-container">
+                                    <div id="scoreContainer"></div>
+                                    <button class="btn finish-btn" id="finishBtn">Finish</button>
+                                </div>
+                                <div class="summary-box-container" id="summaryBoxContainer"></div>
+                            </div>
+
+                    </section>
+                    
+                </div> <!--END OF col-75-->
+                
+                <div class="col-25">
+
+                    <!--SIDE COLUMN-->
+                    <section>
                         <div class="header-lg">
-                            <h1 id="header">VerbApp</h1>
-                            <p>Learn and practice verb conjugations in Spanish</p>
+                            <h1>History</h1>
                         </div>
-    
-                        <div>
-                            <div class="section">
-                                <div class="text-sm">
-                                    <h3>Learn</h3>
-                                    <div class="flex-row">
-                                        <div class="col-50">
-                                            <p>Learn how to conjugate verbs in Spanish to indicate the who or what is performing the action, and when they performed it.</p> 
-                                        </div>
-                                        <div class="flex-col col-50">
-                                            <div class="front-img learn"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-    
-                            <div class="section">
-                                <div class="text-sm">
-                                    <h3>Practice</h3>
-                                    <div class="flex-row">
-                                        <div class="flex-col col-50">
-                                            <div class="front-img practice"></div>
-                                        </div>
-                                        <div class="col-50">
-                                            <p>Practice different conjugations to make sure you understand how to explain who is doing what and when.</p>
-                                        </div>
-                                    </div>
-                                </div>
+
+                        <div id="scoreEl">
+                            <div class="text-sm">
+                                <h4>No tests taken</h4>
                             </div>
                         </div>
+                    
                     </section>
 
-                </div> <!--END OF col-75-->
+                </div> <!--END OF col-25-->
+
             </div>
-            
-        </div>
+
     </main>
 
 </body>
