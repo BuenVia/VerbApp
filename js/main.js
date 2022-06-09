@@ -40,6 +40,7 @@ home.addEventListener('click', () => {
             sideBarContainer.style.display = 'block'
             grammarContainer.style.display = 'none'
             headerEl.innerHTML = `<h1>Practice</h1>`
+            questionSet = undefined
         }
     }
 })
