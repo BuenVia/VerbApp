@@ -86,25 +86,24 @@ body {
 
 /*NAV*/
 .navbar { /**/
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 1rem;
     background-color: var(--bkg-clr);
     border-bottom: 2px solid var(--trim-txt);
     position: inherit;
 }
-.nav-links,/**/ .sidebar-links {
-    gap: 3rem;
-    list-style: none;
-    color: var(--trim-txt);
+.home-link {
+    font-size: 32px;
+    color: var(--sec-clr);
+    cursor: pointer;
+}
+.home-link:hover {
+    transition: 300ms;
+    opacity: .8;
 }
 
-.nav-links a{
-    text-decoration: none;
-    opacity: .5;
-}
-.nav-links a:hover {
-    transition: 300ms;
-    opacity: 1;
-}
 .img-png {/**/
     height: 30px;
     opacity: .7;
@@ -222,6 +221,31 @@ body {
     display: none;
 }
 
+.ex-table {
+    flex: 50%;
+    margin: 1rem 0;
+    background-color: transparent;
+    border-collapse: collapse;
+    border-radius: 1rem;
+
+}
+.ex-table th {
+    padding: 1rem; 
+    background-color: var(--sec-clr); 
+    color: var(--trim-txt);
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+}
+.ex-table td {
+    width: 15rem;
+    padding: 1rem;
+    border: 1px solid var(--trim-clr);
+}
+
+.td-lg {
+    border: 1px solid;
+}
+
 /*BUTTONS*/
 .btn {/**/
     padding: .5rem;
@@ -298,6 +322,8 @@ body {
 }
 
 .btn-gram {/**/
+    width: 5rem;
+    margin: 1rem;
     background-color: var(--sec-clr);
     color: var(--trim-txt);
 }
@@ -319,24 +345,6 @@ body {
 .practice-btn:hover {
     transition: 300ms;
     background-color: rgb(138, 0, 0);
-}
-
-.ex-table {
-    width: 100%;
-    border-spacing: 0;
-    box-shadow: 0 0 8px 3px rgb(180, 180, 180);
-}
-/* .ex-table th {
-    padding: .5rem;
-    border: 1px solid black;
-    background-color: var(--sec-clr);
-    color: white;
-    
-} */
-.ex-table td {
-    padding: .5rem;
-    border: 1px solid black;
-    background-color: var(--bkg-clr);
 }
 
 .ex-title {

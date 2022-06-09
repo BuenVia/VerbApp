@@ -1,6 +1,8 @@
 import { questions } from './questionSet.js'
 import { verbSet } from './verbSet.js'
 
+const home = id('home')
+
 const tenseContainer = id('tenseContainer')
 const grammarContainer = id('grammarContainer')
 const practiceContainer = id('practiceContainer')
@@ -29,6 +31,12 @@ let scoreHistory = []
 
 // Responsive design
 // Fill out question set
+
+home.addEventListener('click', () => {
+    tenseContainer.style.display = 'flex'
+    practiceContainer.style.display = 'none'
+    sideBarContainer.style.display = 'block'
+})
 
 // Assign question set
 sectionBtns.forEach(btn => {
@@ -273,50 +281,57 @@ gramEl.forEach(grEl => {
 function genGrammarTemp(item) {
     tenseContainer.style.display = 'none'
     grammarContainer.style.display = 'flex'
-    grammarBox.innerHTML = `
+    grammarBox.innerHTML = `<div id="tempEl">
         <h3>${item.tense}</h3>
         <p>${item.info}</p>`
         genSectionTemp(item)
+        
+        
 }
 
 function genSectionTemp(item) {
     item.types.forEach(itemType => {
-        grammarBox.innerHTML += `<h4>${itemType.type}</h4>
-        <p>${itemType.examples.length}</p>`
-        genTableHead(itemType)
-    })
-}
-
-function genTableHead(item) {
-    item.examples.forEach(example => {
-        grammarBox.innerHTML += `<p>${example.ending}</p>`
-        genTableTemp(example)
+        grammarBox.innerHTML += `<h4>${itemType.type}</h4>`
+        genTableTemp(itemType)
     })
 }
 
 function genTableTemp(item) {
-    grammarBox.innerHTML += `
-    <table class="ex-table">
-        <tr>
-            <td class="td-lg">Yo</td>
-            <td>${item.conj.yo}</td>
-            <td class="td-lg">Nosotros</td>
-            <td>${item.conj.nosotros}</td>
-        </tr>
-        <tr>
-            <td class="td-lg">Tú</td>
-            <td>${item.conj.tu}</td>
-            <td class="td-lg">Vosotros</td>
-            <td>${item.conj.vosotros}</td>
-        </tr>
-        <tr>
-            <td class="td-lg">El / Ella / Usted</td>
-            <td>${item.conj.el}</td>
-            <td class="td-lg">Ellos / Ellas / Ustedes</td>
-            <td>${item.conj.ustedes}</td>
-        </tr>
-    </table>
+    item.examples.forEach(item => {
+        grammarBox.innerHTML += `
+    <p>${item.ending} verbs use the following endings:</p>
+        <table class="ex-table">
+            <tr>
+                <th>Pronoun</th>
+                <th>${item.ending}</th>
+            </tr>
+            <tr>
+                <td>Yo</td>
+                <td>${item.conj.yo}</td>
+            </tr>
+            <tr>
+                <td>Nosotros</td>
+                <td>${item.conj.nosotros}</td>
+            </tr>
+            <tr>
+                <td>Tú</td>
+                <td>${item.conj.tu}</td>
+            </tr>
+            <tr>
+                <td>Vosotros</td>
+                <td>${item.conj.vosotros}</td>
+            </tr>
+            <tr>
+                <td>El / Ella / Usted</td>
+                <td>${item.conj.el}</td>
+            </tr>
+            <tr>
+                <td>Ellos / Ellas / Ustedes</td>
+                <td>${item.conj.ustedes}</td>
+            </tr>
+        </table>
     `
+    })
 }
 
 // Play audio at end of each correct answer
