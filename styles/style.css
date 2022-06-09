@@ -244,11 +244,13 @@ body {
 .ex-table td {
     width: 15rem;
     padding: 1rem;
-    border: 1px solid var(--trim-clr);
+
 }
 
-.td-lg {
-    border: 1px solid;
+.grTr {
+    background-color: var(--sec-clr);
+    color: var(--trim-txt);
+    border: none;
 }
 
 /*BUTTONS*/

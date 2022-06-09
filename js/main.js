@@ -36,6 +36,8 @@ home.addEventListener('click', () => {
     tenseContainer.style.display = 'flex'
     practiceContainer.style.display = 'none'
     sideBarContainer.style.display = 'block'
+    grammarContainer.style.display = 'none'
+    headerEl.innerHTML = `<h1>Practice</h1>`
 })
 
 // Assign question set
@@ -48,7 +50,7 @@ sectionBtns.forEach(btn => {
             tenseContainer.style.display = 'none'
             practiceContainer.style.display = 'block'
             sideBarContainer.style.display = 'none'
-            console.log(questionSet)
+            headerEl.innerHTML = `<h1>${questionSet[questionIndex].tense}</h1>`
         } else {
             alert('Sorry, your choice doesn\'t exist yet')
         }
@@ -285,8 +287,8 @@ gramEl.forEach(grEl => {
 function genGrammarTemp(item) {
     tenseContainer.style.display = 'none'
     grammarContainer.style.display = 'flex'
-    grammarBox.innerHTML = `<div id="tempEl">
-        <h3>${item.tense}</h3>
+    headerEl.innerHTML = `<h1>${item.tense}</h1>`
+    grammarBox.innerHTML = `<div>
         <p>${item.info}</p>`
         genSectionTemp(item)
         
@@ -295,7 +297,6 @@ function genGrammarTemp(item) {
 
 function genSectionTemp(item) {
     item.types.forEach(itemType => {
-        grammarBox.innerHTML += `<h4>${itemType.type}</h4>`
         genTableTemp(itemType)
     })
 }
@@ -303,34 +304,34 @@ function genSectionTemp(item) {
 function genTableTemp(item) {
     item.examples.forEach(item => {
         grammarBox.innerHTML += `
-    <p>${item.ending} verbs use the following endings:</p>
+    <h4>${item.ending} verbs use the following endings:</h4>
         <table class="ex-table">
             <tr>
                 <th>Pronoun</th>
                 <th>${item.ending}</th>
+
+                <th>Pronoun</th>
+                <th>${item.ending}</th>
             </tr>
             <tr>
-                <td>Yo</td>
+                <td class="grTr">Yo</td>
                 <td>${item.conj.yo}</td>
-            </tr>
-            <tr>
-                <td>Nosotros</td>
+
+                <td class="grTr">Nosotros</td>
                 <td>${item.conj.nosotros}</td>
             </tr>
             <tr>
-                <td>Tú</td>
+                <td class="grTr">Tú</td>
                 <td>${item.conj.tu}</td>
-            </tr>
-            <tr>
-                <td>Vosotros</td>
+
+                <td class="grTr">Vosotros</td>
                 <td>${item.conj.vosotros}</td>
             </tr>
             <tr>
-                <td>El / Ella / Usted</td>
+                <td class="grTr">El / Ella / Usted</td>
                 <td>${item.conj.el}</td>
-            </tr>
-            <tr>
-                <td>Ellos / Ellas / Ustedes</td>
+
+                <td class="grTr">Ellos / Ellas / Ustedes</td>
                 <td>${item.conj.ustedes}</td>
             </tr>
         </table>
