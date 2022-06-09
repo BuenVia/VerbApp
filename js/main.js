@@ -264,7 +264,11 @@ function dateFormat() {
 
 // Grammar element
 Object.values(verbSet).forEach(verb => {
-    id('grammarEl').innerHTML += `<div><button class="btn btn-gram" data-ele="${verb.tense}">${verb.tense}</button></div>`
+    id('grammarEl').innerHTML += `
+    <div class="text-sm grammar-card">
+        <button class="btn btn-gram" data-ele="${verb.tense}">GO</button>
+        <p>${verb.tense}</p>
+    </div>`
 })
 
 const gramEl = document.querySelectorAll('[data-ele]')

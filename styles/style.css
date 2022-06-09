@@ -217,6 +217,11 @@ body {
 }
 
 /*GRAMMAR*/
+.grammar-card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
 .grammar-container {
     display: none;
 }
@@ -322,8 +327,7 @@ body {
 }
 
 .btn-gram {/**/
-    width: 5rem;
-    margin: 1rem;
+    width: 2rem;
     background-color: var(--sec-clr);
     color: var(--trim-txt);
 }

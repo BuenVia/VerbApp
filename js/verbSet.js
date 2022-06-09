@@ -44,7 +44,7 @@ export const verbSet = {
             }]
         },
     presStem: {
-        tense: 'Present - Stem-Changing Verbs',
+        tense: 'Present - Stem-Changing',
         info: "Some verbs change their form. These are known as stem-changing verbs.",
         types: [
             {
@@ -138,52 +138,3 @@ export const verbSet = {
                         ] 
         }
     }
-             
-
-//             
-//     preterite: {
-//         tense: 'Preterite',
-//         info: "To talk about a completed action in the past.",
-//         type: [
-//             {
-//                 type: 'Regular'
-//             },
-//             {
-//                 type: 'Stem-Changing Verbs'
-//             },
-//             {
-//                 type: 'Irregular'
-//             }
-//         ] 
-//     },
-//     imperfect: {
-//         tense: 'Imperfect',
-//         info: "To talk about something in the past that happened repeatedly, or over an undefined (unidicated) period of time.",
-//         type: [
-//             {
-//                 type: 'Regular'
-//             },
-//             {
-//                 type: 'Stem-Changing Verbs'
-//             },
-//             {
-//                 type: 'Irregular'
-//             }
-//         ] 
-//     },
-//     perfect: {
-//         tense: 'Perfect',
-//         info: "To talk about something in the past that happened repeatedly, or over an undefined (unidicated) period of time.",
-//         type: [
-//             {
-//                 type: 'Regular'
-//             },
-//             {
-//                 type: 'Stem-Changing Verbs'
-//             },
-//             {
-//                 type: 'Irregular'
-//             }
-//         ] 
-//     }
-// }
