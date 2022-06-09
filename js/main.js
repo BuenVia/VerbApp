@@ -33,11 +33,15 @@ let scoreHistory = []
 // Fill out question set
 
 home.addEventListener('click', () => {
-    tenseContainer.style.display = 'flex'
-    practiceContainer.style.display = 'none'
-    sideBarContainer.style.display = 'block'
-    grammarContainer.style.display = 'none'
-    headerEl.innerHTML = `<h1>Practice</h1>`
+    if (questionSet !== undefined) {
+        if (confirm('If you select OK, your current test will not be saved.') == true) {
+            tenseContainer.style.display = 'flex'
+            practiceContainer.style.display = 'none'
+            sideBarContainer.style.display = 'block'
+            grammarContainer.style.display = 'none'
+            headerEl.innerHTML = `<h1>Practice</h1>`
+        }
+    }
 })
 
 // Assign question set
