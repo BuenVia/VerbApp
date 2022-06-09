@@ -1,9 +1,106 @@
 export const questions = {
-    infinitive: {
-        // To be determined
-    },
-    present: {
-        one: {
+    infinitive: [ {
+            tense: 'Infinitive',
+            type: 'write',
+            instuction: 'Translate this word to Spanish',
+            text: 'to have',
+            answers: {
+                correct: 'tener',
+                other: null
+            }, 
+            fullText: 'tener'
+        },
+        {
+            tense: 'Infinitive',
+            type: 'write',
+            instuction: 'Translate this word to Spanish',
+            text: 'to say',
+            answers: {
+                correct: 'decir',
+                other: null
+            }, 
+            fullText: 'decir'
+        },
+        {
+            tense: 'Infinitive',
+            type: 'write',
+            instuction: 'Translate this word to Spanish',
+            text: 'to write',
+            answers: {
+                correct: 'escribir',
+                other: null
+            }, 
+            fullText: 'escribir'
+        },
+        {
+            tense: 'Infinitive',
+            type: 'write',
+            instuction: 'Translate this word to Spanish',
+            text: 'to have',
+            answers: {
+                correct: 'tener',
+                other: null
+            }, 
+            fullText: 'tener'
+        },
+        {
+            tense: 'Infinitive',
+            type: 'write',
+            instuction: 'Translate this word to Spanish',
+            text: 'to say',
+            answers: {
+                correct: 'decir',
+                other: null
+            }, 
+            fullText: 'decir'
+        },
+        {
+            tense: 'Infinitive',
+            type: 'write',
+            instuction: 'Translate this word to Spanish',
+            text: 'to write',
+            answers: {
+                correct: 'escribir',
+                other: null
+            }, 
+            fullText: 'escribir'
+        },
+        {
+            tense: 'Infinitive',
+            type: 'write',
+            instuction: 'Translate this word to Spanish',
+            text: 'to have',
+            answers: {
+                correct: 'tener',
+                other: null
+            }, 
+            fullText: 'tener'
+        },
+        {
+            tense: 'Infinitive',
+            type: 'write',
+            instuction: 'Translate this word to Spanish',
+            text: 'to say',
+            answers: {
+                correct: 'decir',
+                other: null
+            }, 
+            fullText: 'decir'
+        },
+        {
+            tense: 'Infinitive',
+            type: 'write',
+            instuction: 'Translate this word to Spanish',
+            text: 'to write',
+            answers: {
+                correct: 'escribir',
+                other: null
+            }, 
+            fullText: 'escribir'
+        }
+    ],
+    present: [
+        {
             tense: 'Present',
             type: 'write',
             instuction: 'Translate this word to Spanish',
@@ -14,7 +111,7 @@ export const questions = {
             }, 
             fullText: 'tener'
         },
-        two: {
+        {
             tense: 'Present',
             type: 'multipleChoice',
             instuction: 'Select the correct word',
@@ -28,9 +125,9 @@ export const questions = {
             },
             fullText: 'Yo visito a mi amigo'
         }
-    },
-    serEstar: {
-        one: {
+    ],
+    serEstar: [
+        {
             tense: 'Ser and Estar',
             type: 'multipleChoice',
             instuction: 'Select the correct word',
@@ -44,7 +141,7 @@ export const questions = {
             },
             fullText: 'Daniel y yo somos griegos'
         },
-        two: {
+        {
             tense: 'Ser and Estar',
             type: 'write',
             instuction: 'Translate this word to Spanish',
@@ -55,5 +152,6 @@ export const questions = {
             },
             fullText: 'El libro está en mi mochila'
         }
-    }
+    ]
 }
+

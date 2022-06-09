@@ -1,9 +1,12 @@
 import { questions } from './questionSet.js'
+import { verbSet } from './verbSet.js'
 
 const tenseContainer = id('tenseContainer')
+const grammarContainer = id('grammarContainer')
 const practiceContainer = id('practiceContainer')
 const summaryContainer = id('summaryContainer')
 const sideBarContainer = id('sideBarContainer')
+const grammarBox = id('grammarBox')
 
 const sectionBtns = document.querySelectorAll('[data-practice-btn]')
 
@@ -32,11 +35,12 @@ sectionBtns.forEach(btn => {
     btn.addEventListener('click', () => {
         const btnDataSet = btn.dataset.practiceBtn
         if(questions.hasOwnProperty(btnDataSet)) {
-            questionSet = Object.values(questions[btnDataSet])
+            questionSet = questions[btnDataSet]
             loadQuestions(questionSet[questionIndex])
             tenseContainer.style.display = 'none'
             practiceContainer.style.display = 'block'
             sideBarContainer.style.display = 'none'
+            console.log(questionSet)
         } else {
             alert('Sorry, your choice doesn\'t exist yet')
         }
@@ -248,6 +252,71 @@ function dateFormat() {
             return el
         }
     }
+}
+
+// Grammar element
+Object.values(verbSet).forEach(verb => {
+    id('grammarEl').innerHTML += `<div><button class="btn btn-gram" data-ele="${verb.tense}">${verb.tense}</button></div>`
+})
+
+const gramEl = document.querySelectorAll('[data-ele]')
+gramEl.forEach(grEl => {
+    grEl.addEventListener('click', () => {
+        const subject = grEl.dataset.ele
+        const vs = Object.values(verbSet)
+        for (let i = 0; i < vs.length; i++) {
+            if (vs[i].tense === subject) genGrammarTemp(vs[i])
+        }
+    })
+})
+
+function genGrammarTemp(item) {
+    tenseContainer.style.display = 'none'
+    grammarContainer.style.display = 'flex'
+    grammarBox.innerHTML = `
+        <h3>${item.tense}</h3>
+        <p>${item.info}</p>`
+        genSectionTemp(item)
+}
+
+function genSectionTemp(item) {
+    item.types.forEach(itemType => {
+        grammarBox.innerHTML += `<h4>${itemType.type}</h4>
+        <p>${itemType.examples.length}</p>`
+        genTableHead(itemType)
+    })
+}
+
+function genTableHead(item) {
+    item.examples.forEach(example => {
+        grammarBox.innerHTML += `<p>${example.ending}</p>`
+        genTableTemp(example)
+    })
+}
+
+function genTableTemp(item) {
+    grammarBox.innerHTML += `
+    <table class="ex-table">
+        <tr>
+            <td class="td-lg">Yo</td>
+            <td>${item.conj.yo}</td>
+            <td class="td-lg">Nosotros</td>
+            <td>${item.conj.nosotros}</td>
+        </tr>
+        <tr>
+            <td class="td-lg">Tú</td>
+            <td>${item.conj.tu}</td>
+            <td class="td-lg">Vosotros</td>
+            <td>${item.conj.vosotros}</td>
+        </tr>
+        <tr>
+            <td class="td-lg">El / Ella / Usted</td>
+            <td>${item.conj.el}</td>
+            <td class="td-lg">Ellos / Ellas / Ustedes</td>
+            <td>${item.conj.ustedes}</td>
+        </tr>
+    </table>
+    `
 }
 
 // Play audio at end of each correct answer
