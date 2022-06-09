@@ -3,6 +3,7 @@ import { questions } from './questionSet.js'
 const tenseContainer = id('tenseContainer')
 const practiceContainer = id('practiceContainer')
 const summaryContainer = id('summaryContainer')
+const sideBarContainer = id('sideBarContainer')
 
 const sectionBtns = document.querySelectorAll('[data-practice-btn]')
 
@@ -35,6 +36,7 @@ sectionBtns.forEach(btn => {
             loadQuestions(questionSet[questionIndex])
             tenseContainer.style.display = 'none'
             practiceContainer.style.display = 'block'
+            sideBarContainer.style.display = 'none'
         } else {
             alert('Sorry, your choice doesn\'t exist yet')
         }
@@ -90,6 +92,7 @@ function loadQuestions(item) {
             headerEl.innerHTML = `<h1>Practice</h1>` // Change to be tense
             summaryContainer.style.display = 'none'
             tenseContainer.style.display = 'block'
+            sideBarContainer.style.display = 'block'
             scoreTemp()
         })
     }
