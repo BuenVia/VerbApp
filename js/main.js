@@ -14,8 +14,6 @@ const sectionBtns = document.querySelectorAll('[data-practice-btn]')
 
 const headerEl = id('header')
 
-// Contains tense for scoreHistory
-let questionSetTense
 // The questions variable (pulled from questionSet.js) + chosenSub. eg... questions.present
 let questionSet
 // The questions variable + chosenSub + position of current item in the chosenSub. eg... questions.present[0]
@@ -35,15 +33,19 @@ let scoreHistory = []
 // Fill out question set
 
 home.addEventListener('click', () => {
+    const retHome = function () {
+        tenseContainer.style.display = 'flex'
+        practiceContainer.style.display = 'none'
+        sideBarContainer.style.display = 'block'
+        grammarContainer.style.display = 'none'
+        headerEl.innerHTML = `<h1>Practice</h1>`
+        questionSet = undefined
+    }
+
     if (questionSet !== undefined) {
-        if (confirm('If you select OK, your current test will not be saved.') == true) {
-            tenseContainer.style.display = 'flex'
-            practiceContainer.style.display = 'none'
-            sideBarContainer.style.display = 'block'
-            grammarContainer.style.display = 'none'
-            headerEl.innerHTML = `<h1>Practice</h1>`
-            questionSet = undefined
-        }
+        if (confirm('If you select OK, your current test will not be saved.') === true) retHome()
+    } else {
+        retHome()
     }
 })
 
@@ -52,7 +54,7 @@ sectionBtns.forEach(btn => {
     btn.addEventListener('click', () => {
         const btnDataSet = btn.dataset.practiceBtn
         if(qs.hasOwnProperty(btnDataSet)) {
-            questionSetTense = qs[btnDataSet].tense
+            finalScore.tense = qs[btnDataSet].tense
             questionSet = qs[btnDataSet].questions
             loadQuestions(questionSet[questionIndex])
             tenseContainer.style.display = 'none'
@@ -134,8 +136,6 @@ function assignAnswer(item) {
 // Checks user answer against actual answer and saves it to object
 function checkAnswer(item) {
     questionSet[questionIndex].userAnswer = userAnswer
-    finalScore.tense = questionSetTense
-    console.log(questionSetTense);
     finalScore.date = dateFormat()
     finalScore.total++
     if (userAnswer === questionSet[questionIndex].answers.correct) {
@@ -177,9 +177,9 @@ function genTemp(item) {
             return `
             </div>
             <div class="flex-col">
-                <button class="ans-btn" id="ansBtn" data-ans-btn="${item.answers.other.one}">${item.answers.other.one}</button>
+                <button class="ans-btn" id="ansBtn" data-ans-btn="${item.answers.other[0]}">${item.answers.other[0]}</button>
                 <button class="ans-btn" id="ansBtn" data-ans-btn="${item.answers.correct}">${item.answers.correct}</button>
-                <button class="ans-btn" id="ansBtn" data-ans-btn="${item.answers.other.two}">${item.answers.other.two}</button>
+                <button class="ans-btn" id="ansBtn" data-ans-btn="${item.answers.other[1]}">${item.answers.other[1]}</button>
             </div>
             `
         }
@@ -274,7 +274,7 @@ function dateFormat() {
 }
 
 // Grammar element
-Object.values(verbSet).forEach(verb => {
+verbSet.forEach(verb => {
     id('grammarEl').innerHTML += `
     <div class="text-sm grammar-card">
         <button class="btn btn-gram" data-ele="${verb.tense}">GO</button>
@@ -360,7 +360,6 @@ function playaudio(text, speed) {
 
 // Reset state
 function resetState() {
-    questionSetTense = ''
     questionSet = ''
     questionIndex = 0
     userAnswer = ''
