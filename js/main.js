@@ -1,5 +1,5 @@
-import { questions } from './questionSet.js'
 import { verbSet } from './verbSet.js'
+import { qs } from './questionSet.js'
 
 const home = id('home')
 
@@ -14,6 +14,8 @@ const sectionBtns = document.querySelectorAll('[data-practice-btn]')
 
 const headerEl = id('header')
 
+// Contains tense for scoreHistory
+let questionSetTense
 // The questions variable (pulled from questionSet.js) + chosenSub. eg... questions.present
 let questionSet
 // The questions variable + chosenSub + position of current item in the chosenSub. eg... questions.present[0]
@@ -49,13 +51,14 @@ home.addEventListener('click', () => {
 sectionBtns.forEach(btn => {
     btn.addEventListener('click', () => {
         const btnDataSet = btn.dataset.practiceBtn
-        if(questions.hasOwnProperty(btnDataSet)) {
-            questionSet = questions[btnDataSet]
+        if(qs.hasOwnProperty(btnDataSet)) {
+            questionSetTense = qs[btnDataSet].tense
+            questionSet = qs[btnDataSet].questions
             loadQuestions(questionSet[questionIndex])
             tenseContainer.style.display = 'none'
             practiceContainer.style.display = 'block'
             sideBarContainer.style.display = 'none'
-            headerEl.innerHTML = `<h1>${questionSet[questionIndex].tense}</h1>`
+            headerEl.innerHTML = `<h1>${qs[btnDataSet].tense}</h1>`
         } else {
             alert('Sorry, your choice doesn\'t exist yet')
         }
@@ -131,7 +134,8 @@ function assignAnswer(item) {
 // Checks user answer against actual answer and saves it to object
 function checkAnswer(item) {
     questionSet[questionIndex].userAnswer = userAnswer
-    finalScore.tense = item.tense
+    finalScore.tense = questionSetTense
+    console.log(questionSetTense);
     finalScore.date = dateFormat()
     finalScore.total++
     if (userAnswer === questionSet[questionIndex].answers.correct) {
@@ -356,6 +360,7 @@ function playaudio(text, speed) {
 
 // Reset state
 function resetState() {
+    questionSetTense = ''
     questionSet = ''
     questionIndex = 0
     userAnswer = ''
