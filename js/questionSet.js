@@ -46,5 +46,15 @@ export const qs = {
             new quesTemp(mc, sel, 'Hola _________ Matt', { correct: 'soy', other: ['estoy', 'sea'] }, 'Hola soy Matt'),
             new quesTemp(mc, sel, 'Todas mis primos __________ peluqueras. ¡Qué raro!', { correct: 'son', other: ['están', 'estamos'] }, 'Todas mis primos son peluqueras. ¡Qué raro!')
         ]
-    }
+    },
+    preterite: {
+        tense: 'Preterite',
+        questions : [
+            new quesTemp(w, tranSp,'I bought six cakes from the pastry shop', { correct: 'Compré seis pasteles de la pastelería', other: null },'Compré seis pasteles de la pastelería'),
+            new quesTemp(w, tranSp,'Germán watched TV for four hours', { correct: 'Germán vio la televisión durante cuatro horas', other: null },'Germán vio la televisión durante cuatro horas'),
+            new quesTemp(mc, sel, 'I went', { correct: 'fui', other: ['fuiste', 'fuimos'] }, 'fui'),
+            new quesTemp(mc, sel, 'Yo __________ mis libros', { correct: 'traje', other: ['trajiste', 'trajo'] }, 'Yo traje mis libros'),
+            new quesTemp(mc, sel, 'He said', { correct: 'dijo', other: ['dije', 'dijeron'] }, 'dijo'),
+        ]
+    },
 }

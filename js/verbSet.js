@@ -10,7 +10,8 @@ class example {
     }
 }
 
-export const verbSet = [ {
+export const verbSet = [
+    {
         tense: 'Present - Regular',
         info: "Verb endings change depending on who is performing the action.",
         types: [{
@@ -66,10 +67,48 @@ export const verbSet = [ {
                 conj: new example('','','','','','', '')
             }]
         }]
-    }
+    },
+    {
+        tense: 'Preterite - Regular',
+        info: 'Preterite tense regular verb endings use the stem of the infinite verb and the endings are the following format:',
+        types: [{
+            type: 'Regular',
+            examples: [{
+                ending: '-AR',
+                conj: new example('','-é','-aste','-ó','-amos','-asteis', '-aron')
+            },
+            {
+                ending: '-ER & IR',
+                conj: new example('','-í','-iste','-ió','imos','isteis', 'ieron')
+            }]
+        }]
+    },
+    {
+        tense: 'Preterite - Irregular',
+        info: 'There are a lot of irregular preterite verbs - they are best learned indiviually. The most common ones are:',
+        types: [{
+            type: 'Preterite - Irregular',
+            examples: [{
+                ending: 'Ser',
+                conj: new example('','fui','fuiste','fui','fuimos','fuisteis', 'fueron')
+            },
+            {
+                ending: 'Estar',
+                conj: new example('','estuve','estuviste','estuvo','estuvimos','estuvisteis', 'estuvieron')
+            },
+            {
+                ending: 'Ir',
+                conj: new example('','fui','fuiste','fui','fuimos','fuisteis', 'fueron')
+            },
+            {
+                ending: 'Hacer',
+                conj: new example('','hice','hiciste','hizo','hicimos','hicisteis', 'hicieron')
+            }]
+        }]
+    },
 ]
 
-// presIrr: {
+//  {
 //     tense: '',
 //     info: '',
 //     types: [{
