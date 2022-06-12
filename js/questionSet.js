@@ -57,4 +57,24 @@ export const qs = {
             new quesTemp(mc, sel, 'He said', { correct: 'dijo', other: ['dije', 'dijeron'] }, 'dijo'),
         ]
     },
+    imperfect: {
+        tense: 'Imperfect',
+        questions : [
+            new quesTemp(w, tranSp,'I used to go to the gym by bike', { correct: 'Iba al gimnasio en bici', other: null },'Iba al gimnasio en bici'),
+            new quesTemp(mc, sel, 'You used to be quite lazy', { correct: 'Eras bastante perezosa', other: ['Estabas bastant perezosa', 'Fuist bastante perezosa'] }, 'Eras bastante perezosa'),
+            new quesTemp(w, tranEn,'Veíamos documentales juntos', { correct: 'We used to watch documentaries together', other: null },'Veíamos documentales juntos'),
+            new quesTemp(mc, sel, 'Cada verano, __________ (nadar, ellos) en el lago', { correct: 'nadaban', other: ['nadaron', 'nadaba'] }, 'Cada verano, nadaban en el lago'),
+            new quesTemp(w, tranEn, 'I used to do, you used to do, he / she / it used to do', { correct: 'hacía, hacías, hacía', other: null }, 'hacía, hacías, hacía'),
+        ]
+    },
+    pretImp: {
+        tense: 'Preterite Vs Imperfect',
+        questions : [
+            new quesTemp(mc, sel, 'El lunes _________ al colegio.', { correct: 'fui', other: ['iba', 'fuera'] }, 'El lunes fui al colegio'),
+            new quesTemp(w, tranSp,'When I heard the noise, I was at home', { correct: 'Cuando oí el ruido, estaba en casa', other: null },'Cuando oí el ruido, estaba en casa'),
+            new quesTemp(mc, sel, 'Anteayer, __________ buen tiempo', { correct: 'hizo', other: ['hacía', 'fue'] }, 'Anteayer, hizo buen tiempo'),
+            new quesTemp(w, tranSp,'Yesterday, Pedro told the truth to his mother', { correct: 'Ayer, Pedro dijo la verdad a su madre', other: null },'Ayer, Pedro dijo la verdad a su madre'),
+            new quesTemp(w, tranSp, 'El martes, decidí acostarme pronto', { correct: 'On Tuesday, I decided to go to bed early', other: null }, 'El martes, decidí acostarme pronto.'),
+        ]
+    },
 }
