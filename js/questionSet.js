@@ -74,7 +74,27 @@ export const qs = {
             new quesTemp(w, tranSp,'When I heard the noise, I was at home', { correct: 'Cuando oí el ruido, estaba en casa', other: null },'Cuando oí el ruido, estaba en casa'),
             new quesTemp(mc, sel, 'Anteayer, __________ buen tiempo', { correct: 'hizo', other: ['hacía', 'fue'] }, 'Anteayer, hizo buen tiempo'),
             new quesTemp(w, tranSp,'Yesterday, Pedro told the truth to his mother', { correct: 'Ayer, Pedro dijo la verdad a su madre', other: null },'Ayer, Pedro dijo la verdad a su madre'),
-            new quesTemp(w, tranSp, 'El martes, decidí acostarme pronto', { correct: 'On Tuesday, I decided to go to bed early', other: null }, 'El martes, decidí acostarme pronto.'),
+            new quesTemp(w, tranEn, 'El martes, decidí acostarme pronto', { correct: 'On Tuesday, I decided to go to bed early', other: null }, 'El martes, decidí acostarme pronto.'),
+        ]
+    },
+    perfect: {
+        tense: 'Perfect',
+        questions : [
+            new quesTemp(w, tranSp, 'I have, you (sing., inf.) have, he / she / it has', { correct: 'he, has, ha', other: null}, 'He, has, ha'),
+            new quesTemp(w, tranSp, 'We have, you (pl., inf.), they have', { correct: 'hemos, habéis, han', other: null}, 'hemos, habéis, han'),
+            new quesTemp(w, tranEn, 'dicho', { correct: 'said', other: null}, 'dicho'),
+            new quesTemp(w, tranSp, 'I have done it', { correct: 'Lo he hecho', other: null}, 'Lo he hecho.'),
+            new quesTemp(mc, sel, 'Gone', { correct: 'ido', other: ['ir','fue'] }, 'ido'),
+        ]
+    },
+    pluperfect: {
+        tense: 'Pluperfect',
+        questions : [
+            new quesTemp(mc, sel, 'I had', { correct: 'había', other: ['habías', 'habían'] }, 'había'),
+            new quesTemp(w, tranEn, 'El examen había empezado', { correct: 'The exam had started', other: null}, 'El examen había empzado'),
+            new quesTemp(w, tranSp, 'You had broken the windows', { correct: 'Habías roto las ventanas', other: null}, 'Habías roto las ventanas'),
+            new quesTemp(mc, sel, 'You (all, inf.) had', { correct: 'habíais', other: ['habías', 'habían'] }, 'habíais'),
+            new quesTemp(w, tranSp, 'We had seen that film', { correct: 'Habíamos visto esa película', other: null}, 'Habíamos visto esa película')
         ]
     },
 }
