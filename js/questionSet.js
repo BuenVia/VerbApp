@@ -133,6 +133,8 @@ export const qs = {
             new quesTemp(mc, sel, 'I would', { correct: 'sería', other: ['haría', 'sea']}, 'sería'),
             new quesTemp(mc, sel, 'They would', { correct: 'serían', other: ['harián', 'sean']}, 'serían'),
             new quesTemp(w, tranSp, 'He would eat, but he isn\'t hungry', { correct: 'Comería, pero no tiene hambre', other: null}, 'Comería, pero no tiene hambre'),
+            new quesTemp(w, tranSp, 'You (inf., pl.) wouldn\'t watch that programme', { correct: 'No veríais ese programa', other: null}, 'No veríais ese programa'),
+            new quesTemp(w, tranEn, 'Lavaríamos los platos primeros, luego las tazas', { correct: 'We would wash the dishes first, then the cups', other: null}, 'Lavaríamos los platos primeros, luego las tazas'),
         ]
     },
 }
